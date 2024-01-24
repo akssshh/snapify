@@ -1,0 +1,22 @@
+{
+  "name": "astro-lens",
+  "version": "1.0.0",
+  "description": "Image exploring app which uses nasa's open api.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akssshh/astro-lens.git"
+  },
+  "author": "Akash",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akssshh/astro-lens/issues"
+  },
+  "homepage": "https://github.com/akssshh/astro-lens#readme",
+  "dependencies": {
+    "parcel": "^2.11.0"
+  }
+}
