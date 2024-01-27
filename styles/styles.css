@@ -2,32 +2,29 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* border: 1px solid blue; */
 }
 
 body {
-
+  background-color: #f1faee; 
+  font-family: "Noto Serif Gurmukhi", serif;
 }
 
 h1 {
   font-size: 30px;
   font-weight: bold;
-  /* margin: 40px 0 60px 0; */
 }
-
 
 nav {
   display: flex;
   justify-content: space-around;
-  border: 1px solid red;
   max-width: 1200px;
   margin: 20px auto;
+  font-family: "Noto Serif Gurmukhi", serif;
 }
 
 
 form {
   display: flex;
-  border: 1px solid blue;
 }
 
 #search-input {
@@ -41,11 +38,12 @@ form {
 
 #search-button {
   padding: 10px 20px;
-  background-color: black;
+  background-color: #03045e; 
   color: #fff;
   border: none;
   font-size: 18px;
   cursor: pointer;
   border-radius: 50px;
   margin: 0px 10px;
+  font-family: "Noto Serif Gurmukhi", serif;
 }

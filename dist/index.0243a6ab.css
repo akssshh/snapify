@@ -4,21 +4,25 @@
   padding: 0;
 }
 
+body {
+  background-color: #f1faee;
+  font-family: Noto Serif Gurmukhi, serif;
+}
+
 h1 {
   font-size: 30px;
   font-weight: bold;
 }
 
 nav {
-  border: 1px solid red;
   justify-content: space-around;
   max-width: 1200px;
   margin: 20px auto;
+  font-family: Noto Serif Gurmukhi, serif;
   display: flex;
 }
 
 form {
-  border: 1px solid #00f;
   display: flex;
 }
 
@@ -34,11 +38,12 @@ form {
 #search-button {
   color: #fff;
   cursor: pointer;
-  background-color: #000;
+  background-color: #03045e;
   border: none;
   border-radius: 50px;
   margin: 0 10px;
   padding: 10px 20px;
+  font-family: Noto Serif Gurmukhi, serif;
   font-size: 18px;
 }
 
