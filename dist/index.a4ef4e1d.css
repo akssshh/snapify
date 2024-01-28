@@ -14,18 +14,19 @@ h1 {
   font-weight: bold;
 }
 
-.wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 nav {
   z-index: 100;
+  background-color: #f1faee;
+  border-radius: .5rem;
   max-width: 1200px;
   margin: 0 auto;
   padding: 10px 0;
   position: sticky;
   top: 0;
+}
+
+.scroll {
+  top: 15px;
 }
 
 .navbar {
