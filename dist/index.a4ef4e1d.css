@@ -14,19 +14,23 @@ h1 {
   font-weight: bold;
 }
 
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 nav {
-  box-sizing: border-box;
   z-index: 100;
-  background-color: #fff;
-  width: 100%;
-  position: fixed;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
 }
 
 .navbar {
+  border-radius: .5rem;
   justify-content: space-around;
-  max-width: 1200px;
-  margin: 20px auto;
-  font-family: Noto Serif Gurmukhi, serif;
   display: flex;
 }
 

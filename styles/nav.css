@@ -14,37 +14,26 @@ h1 {
   font-weight: bold;
 }
 
-nav {
-  background-color: #fff;
-  position: fixed;
-  box-sizing: border-box;
-  width: 100%;
-  z-index: 100;
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/*
-width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100px;
-    padding: 10px 100px;
-    box-sizing: border-box;
-    transition: .5s; 
- */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 10px 0;
+  margin-top: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
 .navbar {
   display: flex;
   justify-content: space-around;
-  max-width: 1200px;
-  margin: 20px auto;
-  font-family: "Noto Serif Gurmukhi", serif;
-  
+  border-radius: 0.5rem;
 }
-
-
-
-
 
 form {
   display: flex;
@@ -70,3 +59,4 @@ form {
   margin: 0px 10px;
   font-family: "Noto Serif Gurmukhi", serif;
 }
+
