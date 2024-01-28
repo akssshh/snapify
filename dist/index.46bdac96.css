@@ -1,0 +1,54 @@
+.container {
+  grid-template-columns: repeat(auto-fill, 250px);
+  grid-auto-rows: 10px;
+  justify-content: center;
+  width: 80vw;
+  margin: 100px 0 0;
+  padding: 0;
+  display: grid;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pin1 {
+  background-color: #ffb703;
+  border-radius: 16px;
+  grid-row-end: span 18;
+  margin: 15px 10px;
+  padding: 0;
+}
+
+.pin2 {
+  background-color: #023047;
+  border-radius: 16px;
+  grid-row-end: span 25;
+  margin: 15px 10px;
+  padding: 0;
+}
+
+.pin3 {
+  background-color: #669bbc;
+  border-radius: 16px;
+  grid-row-end: span 33;
+  margin: 15px 10px;
+  padding: 0;
+}
+
+.pin5 {
+  background-color: #3a5a40;
+  border-radius: 16px;
+  grid-row-end: span 52;
+  margin: 15px 10px;
+  padding: 0;
+}
+
+.pin4 {
+  background-color: #457b9d;
+  border-radius: 16px;
+  grid-row-end: span 40;
+  margin: 15px 10px;
+  padding: 0;
+}
+
+/*# sourceMappingURL=index.46bdac96.css.map */

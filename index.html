@@ -4,62 +4,86 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="./scripts/index.js"></script>
-    <link rel="stylesheet" href="./styles/styles.css" />
+
+    <!-- css -->
+    <link rel="stylesheet" href="./styles/nav.css" />
+    <link rel="stylesheet" href="./styles/main.css" />
 
     <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Gurmukhi:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+Gurmukhi:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
     <title>snapify</title>
   </head>
   <body>
-    <nav>
-      <h1>Snapify</h1>
+    <nav >
+        <div class="navbar">
+          <h1>Snapify</h1>
 
-      <div id="search-button">
-        Home
-      </div>
+        <div id="search-button">Home</div>
 
-      <div id="search-button">
-        Explore
-      </div>
+        <div id="search-button">Explore</div>
 
-      <form action="">
-        <input type="text" id="search-input" placeholder="Search for images" />
-        <button id="search-button">Search</button>
-      </form>
+        <form action="">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search for images"
+          />
+          <button id="search-button">Search</button>
+        </form>
+        </div>
     </nav>
 
-    <!-- <div class="search-results" >
-        <div class="search-reslut">
-            <img src="https://images.unsplash.com/photo-1682695799561-033f55f75b25?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAxfHxuZW9tfGVufDB8fDB8fHww" alt="a scenic view mountains and river">
-        </div>
-        <div class="search-reslut">
-            <img src="https://images.unsplash.com/photo-1682695799561-033f55f75b25?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAxfHxuZW9tfGVufDB8fDB8fHww" alt="a scenic view mountains and river">
-        </div>
-        <div class="search-reslut">
-            <img src="https://images.unsplash.com/photo-1682695799561-033f55f75b25?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAxfHxuZW9tfGVufDB8fDB8fHww" alt="a scenic view mountains and river">
-        </div>
+    <div class="container" id="main-content">
+      <div class="pin1"></div>
+      <div class="pin2"></div>
+      <div class="pin3"></div>
+      <div class="pin5"></div>
+      <div class="pin4"></div>
+      <div class="pin1"></div>
+      <div class="pin2"></div>
+      <div class="pin3"></div>
+      <div class="pin5"></div>
+      <div class="pin4"></div>
+      <div class="pin1"></div>
+      <div class="pin2"></div>
+      <div class="pin3"></div>
+      <div class="pin5"></div>
+      <div class="pin4"></div>
+      <div class="pin1"></div>
+      <div class="pin2"></div>
+      <div class="pin3"></div>
+      <div class="pin5"></div>
+      <div class="pin4"></div>
+      <div class="pin1"></div>
+      <div class="pin2"></div>
+      <div class="pin3"></div>
+      <div class="pin5"></div>
+      <div class="pin4"></div>
+      <div class="pin2"></div>
+      <div class="pin3"></div>
+      <div class="pin5"></div>
+      <div class="pin4"></div>
+      <div class="pin1"></div>
+      <div class="pin2"></div>
+      <div class="pin3"></div>
+      <div class="pin5"></div>
+      <div class="pin4"></div>
+      <div class="pin2"></div>
+      <div class="pin3"></div>
+      <div class="pin5"></div>
+      <div class="pin4"></div>
+      <div class="pin1"></div>
+      <div class="pin2"></div>
+      <div class="pin3"></div>
+      <div class="pin5"></div>
+      <div class="pin4"></div>
+    </div>
 
-        <div class="search-reslut">
-            <img src="https://images.unsplash.com/photo-1682695799561-033f55f75b25?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAxfHxuZW9tfGVufDB8fDB8fHww" alt="a scenic view mountains and river">
-        </div>
-        <div class="search-reslut">
-            <img src="https://images.unsplash.com/photo-1682695799561-033f55f75b25?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAxfHxuZW9tfGVufDB8fDB8fHww" alt="a scenic view mountains and river">
-        </div>
-        <div class="search-reslut">
-            <img src="https://images.unsplash.com/photo-1682695799561-033f55f75b25?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAxfHxuZW9tfGVufDB8fDB8fHww" alt="a scenic view mountains and river">
-        </div>
-
-        <div class="search-reslut">
-            <img src="https://images.unsplash.com/photo-1682695799561-033f55f75b25?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAxfHxuZW9tfGVufDB8fDB8fHww" alt="a scenic view mountains and river">
-        </div>
-        <div class="search-reslut">
-            <img src="https://images.unsplash.com/photo-1682695799561-033f55f75b25?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAxfHxuZW9tfGVufDB8fDB8fHww" alt="a scenic view mountains and river">
-        </div>
-        <div class="search-reslut">
-            <img src="https://images.unsplash.com/photo-1682695799561-033f55f75b25?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAxfHxuZW9tfGVufDB8fDB8fHww" alt="a scenic view mountains and river">
-        </div>
-    </div> -->
+   
   </body>
 </html>
