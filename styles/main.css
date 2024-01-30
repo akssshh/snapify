@@ -1,55 +1,42 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .container {
-    margin: 0;
-    padding: 0;
-    width: 80vw;
-    /* background-color: #fefefe; */
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 250px);
-    grid-auto-rows: 10px;
-    justify-content: center;
-    margin-top: 20px;
+  width: 1400px;
+  margin: 20px auto;
+  columns: 4;
+  column-gap: 30px;
+}
+
+.container .box {
+  width: 100%;
+  margin-bottom: 10px;
+  break-inside: avoid;
+}
+
+.container .box img {
+  max-width: 100%;
+  border-radius: 15px;
+}
+
+@media (max-width: 1200px) {
+  .container {
+      width: calc(100% - 40px);
+      columns: 3;
   }
-  
-  .pin1 {
-    margin: 15px 10px;
-    padding: 0;
-    border-radius: 16px;
-    background-color: #ffb703;
-    grid-row-end: span 18;
+}
+
+@media (max-width: 768px) {
+  .container {
+      columns: 2;
   }
-  
-  .pin2 {
-    margin: 15px 10px;
-    padding: 0;
-    border-radius: 16px;
-    background-color: #023047;
-    grid-row-end: span 25;
+}
+
+@media (max-width: 480px) {
+  .container {
+      columns: 1;
   }
-  
-  .pin3 {
-    margin: 15px 10px;
-    padding: 0;
-    border-radius: 16px;
-    background-color: #669bbc;
-    grid-row-end: span 33;
-  }
-  
-  .pin5 {
-    margin: 15px 10px;
-    padding: 0;
-    border-radius: 16px;
-    background-color: #3a5a40;
-    grid-row-end: span 52;
-  }
-  
-  
-  .pin4 {
-    margin: 15px 10px;
-    padding: 0;
-    border-radius: 16px;
-    background-color: #457b9d;
-    grid-row-end: span 40;
-  }
+}
