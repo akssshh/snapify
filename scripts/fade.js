@@ -8,14 +8,14 @@ function fadeOutOnScroll(elements) {
       continue;
     }
   
-    var distanceToTop = window.pageYOffset + element.getBoundingClientRect().top;
+    var distanceToTop = window.pageYOffset + element.getBoundingClientRect().top - 40;
     var elementHeight = element.offsetHeight;
     var scrollTop = document.documentElement.scrollTop;
     
     var opacity = 1;
     
     if (scrollTop > distanceToTop) {
-      opacity = 0.9 - (scrollTop - distanceToTop) / elementHeight;
+      opacity = 0.8 - (scrollTop - distanceToTop) / elementHeight;
     }
     
     if (opacity >= 0) {

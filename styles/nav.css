@@ -31,6 +31,8 @@ nav {
 
 .scroll {
   top: 15px;
+  transition: top .4s cubic-bezier(.2,.45,0,1);
+
   
 }
 
