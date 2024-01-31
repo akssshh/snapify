@@ -6,10 +6,17 @@
 
 .container {
   width: 1400px;
-  margin: 20px auto;
+  margin: 0px auto;
   columns: 4;
   column-gap: 30px;
+  margin-top: 60px;
+  opacity: 1;
 }
+
+.container.fade {
+  opacity: 0.5;
+}
+
 
 .container .box {
   width: 100%;
@@ -19,8 +26,11 @@
 
 .container .box img {
   max-width: 100%;
+  height: auto;
   border-radius: 15px;
 }
+
+
 
 @media (max-width: 1200px) {
   .container {
@@ -40,3 +50,4 @@
       columns: 1;
   }
 }
+

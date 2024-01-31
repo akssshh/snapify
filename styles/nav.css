@@ -14,9 +14,7 @@ h1 {
   font-weight: bold;
 }
 
-.wrapper {
-  
-}
+
 
 nav {
   position: sticky;
@@ -28,10 +26,12 @@ nav {
   margin: 0 auto;
   background-color: #f1faee;
   border-radius: 0.5rem;
+  
 }
 
 .scroll {
   top: 15px;
+  
 }
 
 .navbar {
@@ -64,4 +64,6 @@ form {
   margin: 0px 10px;
   font-family: "Noto Serif Gurmukhi", serif;
 }
+
+
 

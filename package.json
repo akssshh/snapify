@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/akssshh/astro-lens#readme",
   "dependencies": {
+    "masonry-layout": "^4.2.2",
     "parcel": "^2.11.0"
   }
 }
