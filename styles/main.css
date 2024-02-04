@@ -6,7 +6,8 @@
 
 .container {
   /* width: 90%; */
-  margin: 0 auto;
+  margin-inline: auto;
+  margin-top: 80px;
   /* max-width: 1400px; */
 }
 

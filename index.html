@@ -25,27 +25,31 @@
         <div class="navbar">
           <h1>Snapify</h1>
 
-          <div id="search-button">Home</div>
+          <div id="home-button">Home</div>
 
-          <div id="search-button">Explore</div>
+          <div id="explore-button">Explore</div>
 
-          <form action="">
+          <form action="" id="search-form" onsubmit="searchFetchData(event)" >
             <input
               type="text"
               id="search-input"
               placeholder="Search for images"
             />
-            <button id="search-button">Search</button>
+            <button id="search-button" type="submit"  >Search</button>
           </form>
         </div>
       </nav>
 
       <div class="container">
-        <div class="grid"></div>
+        <div class="grid " id="grid-box" ></div>
       </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/macy@2"></script>
     <script src="./scripts/fetch.js"></script>
+    <script src="./scripts/searchFetch.js" ></script>
+    <!-- <script src="./scripts/index.js" ></script> -->
   </body>
 </html>
+
+

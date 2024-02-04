@@ -37,7 +37,7 @@ const fetchData = async () => {
 
   try {
     const response = await fetch(
-      `https://api.unsplash.com/photos?client_id=12gZb1rLsA7rqFgAOuzVaj9Tyi1vpCmsoz1SLzgm_Os&page=${currentPage}`
+      `https://api.unsplash.com/photos?client_id=12gZb1rLsA7rqFgAOuzVaj9Tyi1vpCmsoz1SLzgm_Os&page=${currentPage}&query=nature`
     );
 
     if (!response.ok) {

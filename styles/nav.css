@@ -49,7 +49,7 @@ form {
   font-size: 18px;
 }
 
-#search-button {
+#search-button, #home-button, #explore-button {
   padding: 10px 20px;
   background-color: #03045e;
   color: #fff;
