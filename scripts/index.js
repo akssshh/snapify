@@ -1,10 +1,116 @@
+const imageWrapper = document.querySelector(".grid");
+const searchInput = document.querySelector("#search-input");
+const loadMoreBtn = document.querySelector(".gallery");
 
+const apiKey = "12gZb1rLsA7rqFgAOuzVaj9Tyi1vpCmsoz1SLzgm_Os";
+let currentPage = 1;
+let isFetching = false;
+let hasMore = true;
+let searchTerm = null;
 
+const macyInstance = Macy({
+  container: imageWrapper,
+  breakAt: {
+    1600: 5,
+    1200: 4,
+    900: 3,
+    600: 2,
+    400: 1,
+  },
+  margin: {
+    x: 15,
+    y: 15,
+  },
+});
 
+const fixStartUpBug = () => {
+  macyInstance.runOnImageLoad(function () {
+    macyInstance.recalculate(true, true);
+    var evt = document.createEvent("UIEvents");
+    evt.initUIEvent("resize", true, false, window, 0);
+    window.dispatchEvent(evt);
+  }, true);
+};
 
-
-function search(event){
-    event.preventDefault(); // Prevents form submission
-    const value = document.getElementById("search-input").value;
-    console.log(value);
+const generateHTML = (images) => {
+  if (currentPage === 1) {
+    imageWrapper.innerHTML = "";
   }
+
+
+  imageWrapper.innerHTML += images
+    .map(
+      (img) =>
+        `
+        <div class="grid-item" >
+            <img src="${img.urls.small}" />
+        </div>
+      `
+    )
+    .join("");
+    fixStartUpBug();
+    
+};
+
+const getImages = async (apiURL) => {
+  try {
+    const response = await fetch(apiURL, {
+      headers: { Authorization: `Client-ID ${apiKey}` },
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to load images!");
+    }
+
+    const data = await response.json();
+    console.log(data);
+
+    let photos = [];
+
+    if (data.results) {
+      photos = data.results;
+    } else {
+      photos = data;
+    }
+    generateHTML(photos);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const loadImages = () => {
+  const searchTerm = searchInput.value;
+  let apiUrl = `https://api.unsplash.com/photos?client_id=${apiKey}&page=${currentPage}`;
+  apiUrl = searchTerm
+    ? `https://api.unsplash.com/search/photos?client_id=${apiKey}&page=${currentPage}&query=${searchTerm}`
+    : apiUrl;
+  getImages(apiUrl);
+};
+
+const loadSearchImages = (e) => {
+    if (e.target.value === "") {
+        searchTerm = null;
+      } else {
+        searchTerm = e.target.value;
+      }
+    
+      if (e.key === "Enter") {
+        currentPage = 1;
+        imageWrapper.innerHTML = "";
+        loadImages();
+        searchInput.value = "";
+      }
+};
+
+searchInput.addEventListener("keyup", loadSearchImages);
+
+loadImages();
+
+const handleScroll = () => {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+    loadImages();
+    currentPage++;
+    }
+  };
+  
+  window.addEventListener("scroll", handleScroll);

@@ -51,6 +51,7 @@ const fetchData = async () => {
       return;
     }
 
+
     for (let post of data) {
       let div = document.createElement("div");
       let img = document.createElement("img");
@@ -77,5 +78,3 @@ const handleScroll = () => {
 };
 
 window.addEventListener("scroll", handleScroll);
-
-
