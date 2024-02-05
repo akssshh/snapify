@@ -1,6 +1,6 @@
 const imageWrapper = document.querySelector(".grid");
 const searchInput = document.querySelector("#search-input");
-const loadMoreBtn = document.querySelector(".gallery");
+const searchButton = document.querySelector("#search-button");
 
 const apiKey = "12gZb1rLsA7rqFgAOuzVaj9Tyi1vpCmsoz1SLzgm_Os";
 let currentPage = 1;
@@ -36,7 +36,6 @@ const generateHTML = (images) => {
   if (currentPage === 1) {
     imageWrapper.innerHTML = "";
   }
-
 
   imageWrapper.innerHTML += images
     .map(
@@ -88,21 +87,27 @@ const loadImages = () => {
 };
 
 const loadSearchImages = (e) => {
-    if (e.target.value === "") {
-        searchTerm = null;
-      } else {
-        searchTerm = e.target.value;
-      }
-    
-      if (e.key === "Enter") {
-        currentPage = 1;
-        imageWrapper.innerHTML = "";
-        loadImages();
-        searchInput.value = "";
-      }
+ 
+  if (e.target.value === "") {
+    searchTerm = null;
+  } else {
+    searchTerm = e.target.value;
+  }
+  
+  if (e.key === "Enter" ) {
+    currentPage = 1;
+    searchTerm = e.target.value;
+    imageWrapper.innerHTML = "";
+    loadImages();
+  }
 };
 
 searchInput.addEventListener("keyup", loadSearchImages);
+
+searchButton.addEventListener('click', () => {
+  imageWrapper.innerHTML = "";
+  loadImages();
+})
 
 loadImages();
 
@@ -114,3 +119,6 @@ const handleScroll = () => {
   };
   
   window.addEventListener("scroll", handleScroll);
+
+
+
