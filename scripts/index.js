@@ -32,6 +32,15 @@ const fixStartUpBug = () => {
   }, true);
 };
 
+const downloadImg = (imgUrl) => {
+  fetch(imgUrl).then(res => res.blob()).then(blob => {
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = new Date().getTime();
+      a.click();
+  }).catch(() => alert("Failed to download image!"));
+}
+
 const generateHTML = (images) => {
   if (currentPage === 1) {
     imageWrapper.innerHTML = "";
@@ -41,14 +50,29 @@ const generateHTML = (images) => {
     .map(
       (img) =>
         `
-        <div class="grid-item" >
+        <div class="grid-item card" >
             <img src="${img.urls.small}" />
+            <div class="details">
+              <div class="icons top-icons">
+                <button class="share-btn">
+                  <i class="uil uil-share-alt"></i>
+                </button>
+              </div>
+                <div class="photographer">
+                    <i class="uil uil-camera"></i>
+                    <span>${img.user.name}</span>
+                </div>
+                <div class="">
+                <button class="download-btn" onclick="downloadImg('${img.urls.small}');" >
+                  <i class="uil uil-import"></i>
+                </button>
+              </div>
+            </div>
         </div>
       `
     )
     .join("");
-    fixStartUpBug();
-    
+  fixStartUpBug();
 };
 
 const getImages = async (apiURL) => {
@@ -87,14 +111,13 @@ const loadImages = () => {
 };
 
 const loadSearchImages = (e) => {
- 
   if (e.target.value === "") {
     searchTerm = null;
   } else {
     searchTerm = e.target.value;
   }
-  
-  if (e.key === "Enter" ) {
+
+  if (e.key === "Enter") {
     currentPage = 1;
     searchTerm = e.target.value;
     imageWrapper.innerHTML = "";
@@ -104,21 +127,18 @@ const loadSearchImages = (e) => {
 
 searchInput.addEventListener("keyup", loadSearchImages);
 
-searchButton.addEventListener('click', () => {
+searchButton.addEventListener("click", () => {
   imageWrapper.innerHTML = "";
   loadImages();
-})
+});
 
 loadImages();
 
 const handleScroll = () => {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
     loadImages();
     currentPage++;
-    }
-  };
-  
-  window.addEventListener("scroll", handleScroll);
+  }
+};
 
-
-
+window.addEventListener("scroll", handleScroll);
