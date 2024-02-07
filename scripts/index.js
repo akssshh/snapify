@@ -51,7 +51,7 @@ const generateHTML = (images) => {
       (img) =>
         `
         <div class="grid-item card" >
-            <img src="${img.urls.small}" />
+            <img src="${img.urls.small}" class="fetch-img" />
             <div class="details">
               <div class="icons top-icons">
                 <button class="share-btn">

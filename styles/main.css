@@ -11,18 +11,18 @@
   /* max-width: 1400px; */
 }
 
-img {
+.fetch-img {
   width: 100%;
   cursor: pointer;
   border-radius: 8px;
 }
 
-img {
+.fetch-img {
   cursor: pointer;
   transition: transform 0.5s;
 }
 
-img:hover {
+.fetch-img:hover {
   transform: scale(1.1);
   position: relative;
   z-index: 100;
@@ -36,7 +36,7 @@ img:hover {
   border-radius: 8px;
 }
 
-.gallery .images img {
+.gallery .images .fetch-img {
   z-index: 2;
   position: relative;
 }
