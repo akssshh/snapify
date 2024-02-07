@@ -10,3 +10,8 @@ exploreBtn.addEventListener("click", () => {
   homeSection.style.display = "none";
   exploreSection.style.display = "block";
 });
+
+homeBtn.addEventListener("click", () => {
+    exploreSection.style.display = "none";
+    homeSection.style.display = "block";
+})
