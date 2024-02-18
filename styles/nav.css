@@ -135,6 +135,35 @@
   color: #ababab;
 }
 
+#explore-button, #home-button {
+  cursor: pointer;
+}
+
+
+/* float navbar */
+.float-navbar {
+  max-width: 1400px;
+  display: flex;
+  justify-content: space-around;
+  margin-inline: auto;
+  margin-bottom: 2rem;
+}
+
+#float-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: none;
+  z-index: 100;
+}
+
+
+#float-nav.active {
+  display: block;
+}
 
 
 /* old navbar */
