@@ -1,5 +1,6 @@
 const imageWrapper = document.querySelector(".grid");
 const searchInput = document.querySelector("#search-input");
+const floatSearchInput = document.getElementById('float-search-input');
 const searchButton = document.querySelector("#search-button");
 
 const apiKey = "12gZb1rLsA7rqFgAOuzVaj9Tyi1vpCmsoz1SLzgm_Os";
@@ -102,7 +103,7 @@ const getImages = async (apiURL) => {
 };
 
 const loadImages = () => {
-  const searchTerm = searchInput.value;
+  const searchTerm = searchInput.value || floatSearchInput.value;
   let apiUrl = `https://api.unsplash.com/photos?client_id=${apiKey}&page=${currentPage}`;
   apiUrl = searchTerm
     ? `https://api.unsplash.com/search/photos?client_id=${apiKey}&page=${currentPage}&query=${searchTerm}`
@@ -126,6 +127,7 @@ const loadSearchImages = (e) => {
 };
 
 searchInput.addEventListener("keyup", loadSearchImages);
+floatSearchInput.addEventListener("keyup", loadSearchImages);
 
 searchButton.addEventListener("click", () => {
   imageWrapper.innerHTML = "";

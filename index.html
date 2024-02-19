@@ -64,19 +64,23 @@
 
       <nav id="float-nav">
         <div class="float-navbar">
-          <h1>Snapify</h1>
+          <h1 class="float-logo">Snapify</h1>
 
-          <div id="home-button">Home</div>
+          <div class="float-search">
+            <input
+              type="text"
+              id="float-search-input"
+              autocomplete="off"
+              placeholder="Search images"
+            />
+            <i id="search-button" type="submit" class="uil uil-search"></i>
+          </div>
 
-          <div id="explore-button">Explore</div>
-
-          <input
-            type="text"
-            id="search-input"
-            autocomplete="off"
-            placeholder="Search for images"
-          />
-          <button id="search-button" type="submit">Search</button>
+          <ul class="menu-items">
+            <li><a id="explore-button">Explore</a></li>
+            <li><a id="home-button"  >Home</a></li>
+          </ul>
+          
         </div>
       </nav>
 
