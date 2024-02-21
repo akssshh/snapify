@@ -1,0 +1,67 @@
+@import "https://fonts.googleapis.com/css?family=Open+Sans:800&display=swap";
+
+
+.slider {
+  display: flex;
+  max-height: auto;
+  overflow-y: visible;
+  overflow-x: scroll !important;
+  padding: 16px;
+  transform: scroll(calc(var(--i, 0) / var(--n) * -100%));
+  scroll-behavior: smooth;
+}
+.slider::-webkit-scrollbar {
+  height: 5px;
+  /* width: 150px; */
+  display: none;
+}
+
+.slide {
+  /* position: relative; */
+}
+.slide h4 {
+  /* display: inline-block; */
+  height: 50px;
+  /* width: 100%; */
+  padding: 0 10px;
+  margin: 0 10px;
+  /* margin-bottom: 20px; */
+  object-fit: cover;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
+  border: 1px solid gray;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.control-prev-btn {
+  position: absolute;
+  top: 51%;
+  left: 0;
+  background-color: rgba(255, 255, 255);
+  height: 60px;
+  line-height: 60px;
+  width: 45px;
+  text-align: center;
+  box-shadow: 0 1px 3px #888;
+  user-select: none;
+  color: #444;
+  cursor: pointer;
+  z-index: 1001;
+}
+.control-next-btn {
+  position: absolute;
+  top: 51%;
+  right: 0;
+  background-color: rgba(255, 255, 255);
+  height: 60px;
+  line-height: 60px;
+  width: 45px;
+  text-align: center;
+  box-shadow: 0 1px 3px #888;
+  user-select: none;
+  color: #444;
+  cursor: pointer;
+}

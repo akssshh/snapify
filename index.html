@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./styles/nav.css" />
     <link rel="stylesheet" href="./styles/main.css" />
     <link rel="stylesheet" href="./styles/explore.css" />
+    <link rel="stylesheet" href="./styles/slider.css">
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,6 +22,11 @@
     <link
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
 
     <title>snapify</title>
@@ -62,6 +68,8 @@
         </section>
       </header>
 
+      
+
       <nav id="float-nav">
         <div class="float-navbar">
           <h1 class="float-logo">Snapify</h1>
@@ -81,6 +89,19 @@
             <li><a id="home-button"  >Home</a></li>
           </ul>
           
+        </div>
+
+        <div id="slider-container" class="slider">
+          <!-- <div class="slide">
+            <h4>Cars20</h4>
+          </div> -->
+    
+        </div>
+        <div onclick="prev()" class="control-prev-btn">
+          <i class="fas fa-arrow-left"></i>
+        </div>
+        <div onclick="next()" class="control-next-btn">
+          <i class="fas fa-arrow-right"></i>
         </div>
       </nav>
 
@@ -122,5 +143,6 @@
     <script src="./scripts/explore.js"></script>
     <script src="./scripts/index.js"></script>
     <script src="./scripts/nav.js" ></script>
+    <script src="./scripts/slider.js" ></script>
   </body>
 </html>
