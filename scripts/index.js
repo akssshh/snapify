@@ -3,6 +3,9 @@ const searchInput = document.querySelector("#search-input");
 const floatSearchInput = document.getElementById('float-search-input');
 const searchButton = document.querySelector("#search-button");
 
+
+
+
 const apiKey = "12gZb1rLsA7rqFgAOuzVaj9Tyi1vpCmsoz1SLzgm_Os";
 let currentPage = 1;
 let isFetching = false;
@@ -135,6 +138,7 @@ searchButton.addEventListener("click", () => {
 });
 
 loadImages();
+
 
 const handleScroll = () => {
   if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
