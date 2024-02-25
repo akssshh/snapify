@@ -127,7 +127,7 @@ const generateHTML = (images) => {
                 </button>
               </div>
                 <div class="photographer">
-                    <i class="uil uil-camera"></i>
+                    <img src="${img.user.profile_image.small}" class="photographer_img" />
                     <span>${img.user.name}</span>
                 </div>
                 <div class="">
