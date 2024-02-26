@@ -37,16 +37,14 @@ function displaySlides() {
     heading.textContent = title;
 
     slide.addEventListener("click", () => {
-      alert("You clicked on " + title);
+      // alert("You clicked on " + title);
+      window.location.href = `search.html?query=${encodeURIComponent(title)}`;
     });
-      
 
     slide.appendChild(heading);
     sliderContainer.appendChild(slide);
   });
 }
-
-
 
 // Call the displaySlides function to initially display the slides
 displaySlides();
