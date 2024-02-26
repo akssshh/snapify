@@ -1,4 +1,5 @@
 const imageWrapper = document.querySelector(".grid");
+console.log(imageWrapper);
 const searchInput = document.querySelector("#search-input");
 const floatSearchInput = document.getElementById("float-search-input");
 const searchButton = document.querySelector("#search-button");

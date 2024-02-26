@@ -1,4 +1,5 @@
 // Get the slide container and the array of car names
+// import { loadImages } from "./query";
 const sliderContainer = document.getElementById("slider-container");
 
 const titles = [
