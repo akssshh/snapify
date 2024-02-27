@@ -1,6 +1,7 @@
 // Get the slide container and the array of car names
+// import { loadImages } from "./query";
 const sliderContainer = document.getElementById("slider-container");
-const carNames = [
+const titles = [
     "Cool Tones",
     "Wallpapers",
     "Nature",
@@ -26,12 +27,16 @@ const carNames = [
 function displaySlides() {
     // Clear the slider container
     sliderContainer.innerHTML = "";
-    // Iterate over the car names array and create a slide for each
-    carNames.forEach((carName)=>{
+    // Iterate over the names array and create a slide for each
+    titles.forEach((title)=>{
         const slide = document.createElement("div");
         slide.classList.add("slide");
         const heading = document.createElement("h4");
-        heading.textContent = carName;
+        heading.textContent = title;
+        slide.addEventListener("click", ()=>{
+            // alert("You clicked on " + title);
+            window.location.href = `search.html?query=${encodeURIComponent(title)}`;
+        });
         slide.appendChild(heading);
         sliderContainer.appendChild(slide);
     });

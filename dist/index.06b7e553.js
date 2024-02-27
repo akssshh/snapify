@@ -1,4 +1,5 @@
 const imageWrapper = document.querySelector(".grid");
+console.log(imageWrapper);
 const searchInput = document.querySelector("#search-input");
 const floatSearchInput = document.getElementById("float-search-input");
 const searchButton = document.querySelector("#search-button");
@@ -29,6 +30,7 @@ const fixStartUpBug = ()=>{
         window.dispatchEvent(evt);
     }, true);
 };
+// function to download image
 const downloadImg = (imgUrl)=>{
     fetch(imgUrl).then((res)=>res.blob()).then((blob)=>{
         const a = document.createElement("a");
@@ -38,6 +40,7 @@ const downloadImg = (imgUrl)=>{
     }).catch(()=>alert("Failed to download image!"));
 };
 const generateHTML = (images)=>{
+    console.log(images);
     if (currentPage === 1) imageWrapper.innerHTML = "";
     imageWrapper.innerHTML += images.map((img)=>`
         <div class="grid-item card" >
@@ -49,7 +52,7 @@ const generateHTML = (images)=>{
                 </button>
               </div>
                 <div class="photographer">
-                    <i class="uil uil-camera"></i>
+                    <img src="${img.user.profile_image.small}" class="photographer_img" />
                     <span>${img.user.name}</span>
                 </div>
                 <div class="">
@@ -80,11 +83,12 @@ const getImages = async (apiURL)=>{
         console.error(error);
     }
 };
-const loadImages = ()=>{
-    const searchTerm = searchInput.value || floatSearchInput.value;
+const loadImages = (title)=>{
+    const searchTerm = title || searchInput.value || floatSearchInput.value;
     let apiUrl = `https://api.unsplash.com/photos?client_id=${apiKey}&page=${currentPage}`;
     apiUrl = searchTerm ? `https://api.unsplash.com/search/photos?client_id=${apiKey}&page=${currentPage}&query=${searchTerm}` : apiUrl;
     getImages(apiUrl);
+// currentPage++;
 };
 const loadSearchImages = (e)=>{
     if (e.target.value === "") searchTerm = null;
@@ -93,7 +97,7 @@ const loadSearchImages = (e)=>{
         currentPage = 1;
         searchTerm = e.target.value;
         imageWrapper.innerHTML = "";
-        loadImages();
+        loadImages(searchTerm);
     }
 };
 searchInput.addEventListener("keyup", loadSearchImages);

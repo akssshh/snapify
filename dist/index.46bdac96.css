@@ -86,6 +86,10 @@ button, i {
   font-size: 1rem;
 }
 
+.photographer_img {
+  border-radius: 50%;
+}
+
 .auth-container {
   background: #fff;
   border-radius: 7px;
