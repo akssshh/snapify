@@ -1,5 +1,4 @@
 const imageWrapper = document.querySelector(".grid");
-console.log(imageWrapper);
 const searchInput = document.querySelector("#search-input");
 const floatSearchInput = document.getElementById("float-search-input");
 const searchButton = document.querySelector("#search-button");
@@ -50,7 +49,7 @@ const downloadImg = (imgUrl) => {
 };
 
 const generateHTML = (images) => {
-  console.log(images)
+  // console.log(images)
   if (currentPage === 1) {
     imageWrapper.innerHTML = "";
   }
@@ -96,7 +95,7 @@ const getImages = async (apiURL) => {
     }
 
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
 
     let photos = [];
 

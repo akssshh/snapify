@@ -2,7 +2,7 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const query = urlParams.get("query").toLowerCase();
-console.log("query from query.js" + query);
+// console.log("query from query.js" + query);
 
 let imageWrapper; // Declare imageWrapper variable globally
 
@@ -17,7 +17,7 @@ let macyInstance; // Declare Macy instance variable globally
 const fixStartUpBug = () => {
   macyInstance.runOnImageLoad(() => {
     macyInstance.recalculate(true, true);
-    window.dispatchEvent(new Event('resize')); // Trigger window resize event
+    window.dispatchEvent(new Event("resize")); // Trigger window resize event
   }, true);
 };
 
@@ -31,9 +31,10 @@ const generateHTML = (images) => {
   console.log(images);
 
   // Map over the images array and generate HTML markup for each image
-  const htmlMarkup = images.map(
-    (img) =>
-      `
+  const htmlMarkup = images
+    .map(
+      (img) =>
+        `
       <div class="grid-item card" >
             <img src="${img.urls.small}" class="fetch-img" />
             <div class="details">
@@ -54,9 +55,10 @@ const generateHTML = (images) => {
             </div>
         </div>
     `
-  ).join("");
+    )
+    .join("");
 
-  imageWrapper.innerHTML = htmlMarkup;
+  imageWrapper.innerHTML += htmlMarkup;
 
   fixStartUpBug(); // Fix startup bug after images are inserted
 };
@@ -64,7 +66,7 @@ const generateHTML = (images) => {
 document.addEventListener("DOMContentLoaded", function () {
   // Select the .grid element
   imageWrapper = document.querySelector(".grid");
-  console.log(imageWrapper);
+  // console.log(imageWrapper);
 
   if (!imageWrapper) {
     console.error("Could not find .grid element in the DOM");
@@ -74,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initialize Macy after DOMContentLoaded
   macyInstance = Macy({
     container: imageWrapper,
-    columns: 5, // Number of columns for larger screens
+    columns: 3, // Number of columns for larger screens
     margin: {
       x: 15,
       y: 15,
@@ -112,8 +114,8 @@ const getImages = async (apiURL) => {
 };
 
 const loadImages = (query) => {
-  console.log("query from load images" + query);
-  const apiUrl = `https://api.unsplash.com/search/photos?client_id=${apiKey}&page=1&query=${query}`;
+  // console.log("query from load images" + query);
+  const apiUrl = `https://api.unsplash.com/search/photos?client_id=${apiKey}&page=${currentPage}&query=${query}`;
   getImages(apiUrl);
 };
 
@@ -129,3 +131,12 @@ const downloadImg = (imgUrl) => {
     })
     .catch(() => alert("Failed to download image!"));
 };
+
+const handleScroll = () => {
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+    loadImages(query);
+    currentPage++;
+  }
+};
+
+window.addEventListener("scroll", handleScroll);
