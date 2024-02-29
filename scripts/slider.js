@@ -1,5 +1,3 @@
-// Get the slide container and the array of car names
-// import { loadImages } from "./query";
 const sliderContainer = document.getElementById("slider-container");
 
 const titles = [
@@ -38,7 +36,6 @@ function displaySlides() {
     heading.textContent = title;
 
     slide.addEventListener("click", () => {
-      // alert("You clicked on " + title);
       window.location.href = `search.html?query=${encodeURIComponent(title)}`;
     });
 
