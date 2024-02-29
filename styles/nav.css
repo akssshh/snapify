@@ -162,6 +162,18 @@
   z-index: 100;
 }
 
+/* float nav for slider query */
+
+#float-nav-query {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
 #float-nav.active {
   display: block;
 }

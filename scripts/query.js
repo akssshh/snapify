@@ -60,13 +60,13 @@ const generateHTML = (images) => {
 
   imageWrapper.innerHTML += htmlMarkup;
 
-  fixStartUpBug(); // Fix startup bug after images are inserted
+  fixStartUpBug(); 
 };
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Select the .grid element
+
   imageWrapper = document.querySelector(".grid");
-  // console.log(imageWrapper);
+
 
   if (!imageWrapper) {
     console.error("Could not find .grid element in the DOM");
