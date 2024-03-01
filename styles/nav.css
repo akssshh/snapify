@@ -78,10 +78,10 @@
 /* navbar */
 
 
-.navbar input[type="checkbox"],
+/* .navbar input[type="checkbox"],
 .navbar .hamburger-lines{
   display: none;
-}
+} */
 
 .container{
   max-width: 1500px;
@@ -89,8 +89,7 @@
   margin: auto;
 }
 
-.navbar{
-  /* box-shadow: 0px 5px 10px 0px #aaa; */
+/* .navbar{
   position: absolute;
   width: 100%;
   background: #fff;
@@ -100,21 +99,21 @@
   background: transparent;
   color: white;
   margin-top: 0px;
-}
+} */
 
-.navbar-container{
+/* .navbar-container{
   display: flex;
   justify-content: space-between;
   height: 64px;
   align-items: center;
-}
+} */
 
 .menu-items{
   order: 2;
   display: flex;
 }
 .logo{
-  order: 1;
+  /* order: 1; */
   font-size: 2.3rem;
 }
 
@@ -124,20 +123,186 @@
   font-size: 1.3rem;
 }
 
-.navbar a{
+/* .navbar a{
   color: white;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease-in-out;
-}
+} */
 
-.navbar a:hover{
+/* .navbar a:hover{
   color: #ababab;
+} */
+
+/* #explore-button, #home-button {
+  cursor: pointer;
+} */
+
+
+/* new nav responsive */
+
+/* ===== Colours ===== */
+:root {
+  --body-color: #e4e9f7;
+  --nav-color: #4070f4;
+  --side-nav: #010718;
+  --text-color: #fff;
+  --search-bar: #f2f2f2;
+  --search-text: #010718;
 }
 
-#explore-button, #home-button {
+
+body.dark {
+  --body-color: #18191a;
+  --nav-color: #242526;
+  --side-nav: #242526;
+  --text-color: #ccc;
+  --search-bar: #242526;
+}
+
+.top-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 70px;
+  width: 100%;
+  background-color: transparent;
+  z-index: 100;
+}
+
+body.dark nav {
+  border: 1px solid #393838;
+}
+
+nav .nav-bar {
+  position: relative;
+  height: 100%;
+  max-width: 1300px;
+  width: 100%;
+  background-color: transparent;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav .nav-bar .sidebarOpen {
+  color: var(--text-color);
+  font-size: 25px;
+  padding: 5px;
+  cursor: pointer;
+  display: none;
+}
+
+nav .nav-bar .logo a {
+  font-size: 2.3rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.menu .logo-toggle {
+  display: none;
+}
+
+.nav-bar .nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-bar .nav-links li {
+  margin: 0 5px;
+  list-style: none;
+}
+
+.nav-links li a {
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 10px;
+}
+
+
+.nav-links li:hover a::before {
+  opacity: 0;
+}
+
+.nav-bar .darkLight-searchBox {
+  display: flex;
+  align-items: center;
+}
+
+body.dark .search-field input {
+  color: var(--text-color);
+}
+
+.search-field i {
+  position: absolute;
+  color: var(--nav-color);
+  right: 15px;
+  font-size: 22px;
   cursor: pointer;
 }
+
+body.dark .search-field i {
+  color: var(--text-color);
+}
+
+@media (max-width: 790px) {
+  nav .nav-bar .sidebarOpen {
+    display: block;
+  }
+
+  .menu {
+    position: fixed;
+    height: 100%;
+    width: 320px;
+    right: -330px;
+    top: 0;
+    padding: 20px;
+    background-color: var(--side-nav);
+    z-index: 100;
+    transition: all 0.4s ease;
+  }
+
+  nav.active .menu {
+    right: -0%;
+  }
+
+  nav.active .nav-bar .navLogo a {
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .menu .logo-toggle {
+    display: block;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo-toggle .siderbarClose {
+    color: var(--text-color);
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .nav-bar .nav-links {
+    flex-direction: column;
+    padding-top: 30px;
+  }
+
+  .nav-links li a {
+    display: block;
+    margin-top: 20px;
+  }
+}
+
 
 
 /* float navbar */
@@ -222,3 +387,14 @@
   margin-top: 12rem;
 }
 
+@media screen and (max-width: 768px) {
+  .logo {
+    font-size: 1.8rem; /* Adjust font size for smaller screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .logo {
+    font-size: 1.4rem; /* Adjust font size for even smaller screens */
+  }
+}
