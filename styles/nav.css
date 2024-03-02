@@ -4,15 +4,21 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
+.header-img {
+  height: 500px;
+}
+
 .search {
   height: 60vh;
+  min-height: 500px;
   display: flex;
   position: relative;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10rem;
+  margin-bottom: 5rem;
 }
-.search::before, .search img, .lightbox {
+.search::before, .search img {
   left: 0;
   top: 0;
   width: 100%;
@@ -32,7 +38,7 @@
   color: #fff;
   padding: 0 13px;
   text-align: center;
-  position: relative;
+  /* position: relative; */
 }
 .search h1 {
   font-size: 2.65rem;
@@ -77,36 +83,12 @@
 
 /* navbar */
 
-
-/* .navbar input[type="checkbox"],
-.navbar .hamburger-lines{
-  display: none;
-} */
-
 .container{
   max-width: 1500px;
   width: 90%;
   margin: auto;
 }
 
-/* .navbar{
-  position: absolute;
-  width: 100%;
-  background: #fff;
-  color: #000;
-  opacity: 0.85;
-  z-index: 100;
-  background: transparent;
-  color: white;
-  margin-top: 0px;
-} */
-
-/* .navbar-container{
-  display: flex;
-  justify-content: space-between;
-  height: 64px;
-  align-items: center;
-} */
 
 .menu-items{
   order: 2;
@@ -122,22 +104,6 @@
   margin-left: 1.5rem;
   font-size: 1.3rem;
 }
-
-/* .navbar a{
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease-in-out;
-} */
-
-/* .navbar a:hover{
-  color: #ababab;
-} */
-
-/* #explore-button, #home-button {
-  cursor: pointer;
-} */
-
 
 /* new nav responsive */
 
@@ -164,7 +130,8 @@ body.dark {
   position: absolute;
   top: 0;
   left: 0;
-  height: 70px;
+  /* margin-bottom: 5rem; */
+  /* height: 70px; */
   width: 100%;
   background-color: transparent;
   z-index: 100;
@@ -252,7 +219,7 @@ body.dark .search-field i {
   color: var(--text-color);
 }
 
-@media (max-width: 790px) {
+@media (max-width: 700px) {
   nav .nav-bar .sidebarOpen {
     display: block;
   }
@@ -300,6 +267,21 @@ body.dark .search-field i {
   .nav-links li a {
     display: block;
     margin-top: 20px;
+  }
+
+
+  .search h1 {
+    font-size: 1.8rem;
+  }
+
+  .search p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .search .content {
+    margin-top: 4rem;
   }
 }
 
@@ -394,7 +376,9 @@ body.dark .search-field i {
 }
 
 @media screen and (max-width: 480px) {
-  .logo {
+  nav .nav-bar .logo a{
     font-size: 1.4rem; /* Adjust font size for even smaller screens */
   }
 }
+
+
