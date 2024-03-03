@@ -13,8 +13,8 @@ window.addEventListener('scroll', function() {
 
 const body = document.querySelector("body"),
   nav = document.querySelector("nav"),
-  modeToggle = document.querySelector(".dark-light"),
-  searchToggle = document.querySelector(".searchToggle"),
+  modeToggle = document.querySelectorAll(".dark-light"),
+  searchToggle = document.querySelectorAll(".searchToggle"),
   sidebarOpen = document.querySelectorAll(".sidebarOpen"), // Select all elements with class sidebarOpen
   siderbarClose = document.querySelectorAll(".siderbarClose"); // Select all elements with class siderbarClose
 

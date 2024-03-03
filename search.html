@@ -7,12 +7,18 @@
     <!-- icons -->
     <link
       rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+
+    <link
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
-    <script src="https://cdn.jsdelivr.net/npm/macy@2"></script>
-    <script src="./scripts/query.js"></script>
 
-    
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
 
     <link rel="stylesheet" href="./styles/main.css" />
     <link rel="stylesheet" href="./styles/nav.css" />
@@ -34,14 +40,22 @@
           <i id="search-button" type="submit" class="uil uil-search"></i>
         </div>
 
-        <ul class="menu-items">
-          <li><a id="explore-button">Explore</a></li>
-          <li><a id="home-button" href="/">Home</a></li>
-        </ul>
+        <i class="bx bx-menu sidebarOpen"></i>
+
+        <div class="menu">
+          <div class="logo-toggle">
+            <span class="logo"><a href="#">Snapify</a></span>
+            <i class="bx bx-x siderbarClose"></i>
+          </div>
+
+          <ul class="menu-items">
+            <li><a href="/">Home</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </div>
       </div>
 
-      <div id="slider-container" class="slider">
-      </div>
+      <div id="slider-container" class="slider"></div>
       <div onclick="prev()" class="control-prev-btn">
         <i class="fas fa-arrow-left"></i>
       </div>
@@ -53,6 +67,9 @@
     <div class="container gallery slider-data" id="home-section">
       <div class="grid images" id="grid-box"></div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/macy@2"></script>
+    <script src="./scripts/query.js"></script>
 
     <script src="./scripts/nav.js"></script>
     <script src="./scripts/slider.js"></script>
