@@ -76,10 +76,17 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initialize Macy after DOMContentLoaded
   macyInstance = Macy({
     container: imageWrapper,
-    columns: 3, // Number of columns for larger screens
+    breakAt: {
+      1600: 5,
+      1500: 4,
+      1200: 4,
+      900: 3,
+      600: 2,
+      400: 1,
+    },
     margin: {
-      x: 15,
-      y: 15,
+      x: 17,
+      y: 17,
     },
   });
 

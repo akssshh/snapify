@@ -119,8 +119,6 @@ body.dark {
   position: absolute;
   top: 0;
   left: 0;
-  /* margin-bottom: 5rem; */
-  /* height: 70px; */
   width: 100%;
   background-color: transparent;
   z-index: 100;

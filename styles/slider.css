@@ -16,16 +16,10 @@
   display: none;
 }
 
-.slide {
-  /* position: relative; */
-}
 .slide h4 {
-  /* display: inline-block; */
   height: 50px;
-  /* width: 100%; */
   padding: 0 10px;
   margin: 0 10px;
-  /* margin-bottom: 20px; */
   object-fit: cover;
   border-radius: 15px;
   cursor: pointer;
