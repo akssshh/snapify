@@ -12,27 +12,39 @@ window.addEventListener('scroll', function() {
 
 
 const body = document.querySelector("body"),
-      nav = document.querySelector("nav"),
-      modeToggle = document.querySelector(".dark-light"),
-      searchToggle = document.querySelector(".searchToggle"),
-      sidebarOpen = document.querySelector(".sidebarOpen"),
-      siderbarClose = document.querySelector(".siderbarClose");
+  nav = document.querySelector("nav"),
+  modeToggle = document.querySelector(".dark-light"),
+  searchToggle = document.querySelector(".searchToggle"),
+  sidebarOpen = document.querySelectorAll(".sidebarOpen"), // Select all elements with class sidebarOpen
+  siderbarClose = document.querySelectorAll(".siderbarClose"); // Select all elements with class siderbarClose
 
-      
+// Function to toggle sidebar
+function toggleSidebar() {
+  nav.classList.toggle("active");
+}
 
-
- 
-      
-//   js code to toggle sidebar
-sidebarOpen.addEventListener("click" , () =>{
-    nav.classList.add("active");
+// Event listener for sidebarOpen elements
+sidebarOpen.forEach((element) => {
+  element.addEventListener("click", (e) => {
+    toggleSidebar();
+    console.log("clicked");
+    e.stopPropagation(); // Prevents the event from bubbling up to the body
+  });
 });
 
-body.addEventListener("click" , e =>{
-    let clickedElm = e.target;
-
-    if(!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu")){
-        nav.classList.remove("active");
-    }
+// Event listener for siderbarClose elements
+siderbarClose.forEach((element) => {
+  element.addEventListener("click", (e) => {
+    toggleSidebar();
+    e.stopPropagation(); // Prevents the event from bubbling up to the body
+  });
 });
+
+// Event listener for clicks outside of the menus to close them
+body.addEventListener("click", (e) => {
+  if (!nav.contains(e.target) && !sidebarOpen.contains(e.target)) {
+    nav.classList.remove("active");
+  }
+});
+
 

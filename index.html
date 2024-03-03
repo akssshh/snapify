@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./styles/nav.css" />
     <link rel="stylesheet" href="./styles/main.css" />
     <link rel="stylesheet" href="./styles/explore.css" />
-    <link rel="stylesheet" href="./styles/slider.css">
+    <link rel="stylesheet" href="./styles/slider.css" />
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,32 +29,32 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
 
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
 
     <title>snapify</title>
   </head>
   <body>
     <div class="wrapper">
       <header id="header">
-        
         <nav class="top-nav">
           <div class="nav-bar">
             <span class="logo navLogo"><a href="#">Snapify</a></span>
-            <i class='bx bx-menu sidebarOpen' ></i>
-  
-              <div class="menu">
-                  <div class="logo-toggle">
-                      <span class="logo"><a href="#">Snapify</a></span>
-                      <i class='bx bx-x siderbarClose'></i>
-                  </div>
-  
-                  <ul class="nav-links">
-                      <li><a href="#">Home</a></li>
-                      <li><a href="#">About</a></li>
-                  </ul>
+            <i class="bx bx-menu sidebarOpen"></i>
+
+            <div class="menu">
+              <div class="logo-toggle">
+                <span class="logo"><a href="#">Snapify</a></span>
+                <i class="bx bx-x siderbarClose"></i>
               </div>
-  
-              
+
+              <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+              </ul>
+            </div>
           </div>
         </nav>
 
@@ -76,8 +76,6 @@
         </section>
       </header>
 
-      
-
       <nav id="float-nav">
         <div class="float-navbar">
           <h1 class="float-logo">Snapify</h1>
@@ -92,18 +90,30 @@
             <i id="search-button" type="submit" class="uil uil-search"></i>
           </div>
 
-          <ul class="menu-items">
+          <i class="bx bx-menu sidebarOpen"></i>
+
+          <!-- <ul class="menu-items">
             <li><a id="explore-button">Explore</a></li>
-            <li><a id="home-button"  >Home</a></li>
-          </ul>
-          
+            <li><a id="home-button">Home</a></li>
+          </ul> -->
+
+          <div class="menu">
+            <div class="logo-toggle">
+              <span class="logo"><a href="#">Snapify</a></span>
+              <i class="bx bx-x siderbarClose"></i>
+            </div>
+
+            <ul class="menu-items">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+            </ul>
+          </div>
         </div>
 
         <div id="slider-container" class="slider">
           <!-- <div class="slide">
             <h4>Cars20</h4>
           </div> -->
-    
         </div>
         <div onclick="prev()" class="control-prev-btn">
           <i class="fas fa-arrow-left"></i>
@@ -112,6 +122,8 @@
           <i class="fas fa-arrow-right"></i>
         </div>
       </nav>
+
+      
 
       <div class="container gallery" id="home-section">
         <div class="grid images" id="grid-box"></div>
@@ -150,7 +162,7 @@
     <script src="https://cdn.jsdelivr.net/npm/macy@2"></script>
     <script src="./scripts/explore.js"></script>
     <script src="./scripts/index.js"></script>
-    <script src="./scripts/nav.js" ></script>
-    <script src="./scripts/slider.js" ></script>
+    <script src="./scripts/nav.js"></script>
+    <script src="./scripts/slider.js"></script>
   </body>
 </html>
