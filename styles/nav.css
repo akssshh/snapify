@@ -291,6 +291,12 @@ body.dark .search-field i {
   font-size: 1.3rem;
 }
 
+.menu-items li a {
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+}
+
 .float-navbar .menu-items {
   order: 2;
   display: flex;
