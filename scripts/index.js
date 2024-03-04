@@ -34,7 +34,6 @@ const fixStartUpBug = () => {
   }, true);
 };
 
-
 // function to download image
 
 const downloadImg = (imgUrl) => {
@@ -56,28 +55,29 @@ const generateHTML = (images) => {
   }
 
   imageWrapper.innerHTML += images
-  
+
     .map(
       (img) =>
         `
         <div class="grid-item card" >
             <img src="${img.urls.small}" class="fetch-img" />
-            <div class="details">
+
               <div class="icons top-icons">
                 <button class="share-btn">
                   <i class="uil uil-share-alt"></i>
                 </button>
               </div>
+              <div class="details">
                 <div class="photographer">
                     <img src="${img.user.profile_image.small}" class="photographer_img" />
                     <span>${img.user.name}</span>
                 </div>
                 <div class="">
-                <button class="download-btn" onclick="downloadImg('${img.urls.small}');" >
-                  <i class="uil uil-import"></i>
-                </button>
+                  <button class="download-btn" onclick="downloadImg('${img.urls.small}');" >
+                    <i class="uil uil-import"></i>
+                  </button>
+                </div>
               </div>
-            </div>
         </div>
       `
     )
@@ -154,4 +154,3 @@ const handleScroll = () => {
 };
 
 window.addEventListener("scroll", handleScroll);
-
