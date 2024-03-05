@@ -11,40 +11,37 @@ window.addEventListener('scroll', function() {
 });
 
 
-const body = document.querySelector("body"),
-  nav = document.querySelector("nav"),
-  modeToggle = document.querySelectorAll(".dark-light"),
-  searchToggle = document.querySelectorAll(".searchToggle"),
-  sidebarOpen = document.querySelectorAll(".sidebarOpen"), // Select all elements with class sidebarOpen
-  siderbarClose = document.querySelectorAll(".siderbarClose"); // Select all elements with class siderbarClose
+// const body = document.querySelector("body"),
+//   nav = document.querySelector("nav"),
+//   modeToggle = document.querySelectorAll(".dark-light"),
+//   searchToggle = document.querySelectorAll(".searchToggle"),
+//   sidebarOpen = document.querySelectorAll(".sidebarOpen"), 
+//   siderbarClose = document.querySelectorAll(".siderbarClose"); 
 
-// Function to toggle sidebar
-function toggleSidebar() {
-  nav.classList.toggle("active");
-}
+// function toggleSidebar() {
+//   nav.classList.toggle("active");
+// }
 
-// Event listener for sidebarOpen elements
-sidebarOpen.forEach((element) => {
-  element.addEventListener("click", (e) => {
-    toggleSidebar();
-    console.log("clicked");
-    e.stopPropagation(); // Prevents the event from bubbling up to the body
-  });
-});
 
-// Event listener for siderbarClose elements
-siderbarClose.forEach((element) => {
-  element.addEventListener("click", (e) => {
-    toggleSidebar();
-    e.stopPropagation(); // Prevents the event from bubbling up to the body
-  });
-});
+// sidebarOpen.forEach((element) => {
+//   element.addEventListener("click", (e) => {
+//     toggleSidebar();
+//     console.log("clicked");
+//     e.stopPropagation(); 
+//   });
+// });
 
-// Event listener for clicks outside of the menus to close them
-body.addEventListener("click", (e) => {
-  if (!nav.contains(e.target) && !sidebarOpen.contains(e.target)) {
-    nav.classList.remove("active");
-  }
-});
+// siderbarClose.forEach((element) => {
+//   element.addEventListener("click", (e) => {
+//     toggleSidebar();
+//     e.stopPropagation(); 
+//   });
+// });
+
+// body.addEventListener("click", (e) => {
+//   if (!nav.contains(e.target) && !sidebarOpen.contains(e.target)) {
+//     nav.classList.remove("active");
+//   }
+// });
 
 

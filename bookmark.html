@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bookmark</h1>
+    <div class="" id="bookmarks-section">
+        <div class="" id="bookmarks-box"></div>
+    </div>
+
+    <script>
+        const bookmarksContainer = document.getElementById('bookmarks-box');
+        const bookmarksData = localStorage.getItem('bookmarks');
+        let bookmarks = [];
+
+        if (bookmarksData) {
+            try {
+                bookmarks = JSON.parse(bookmarksData);
+                console.log("Bookmarks:", bookmarks);
+            } catch (error) {
+                console.error("Error parsing bookmarks data:", error);
+            }
+        } else {
+            console.log("No bookmarks found in local storage");
+        }
+        
+        const generateBookmarksHTML = (bookmarks) => {
+          bookmarksContainer.innerHTML = '';
+          bookmarks.forEach((bookmark) => {
+            bookmarksContainer.innerHTML += `
+              <div class="" >
+                <img src="${bookmark.urls.small}" class="fetch-img" />
+                <!-- Add other necessary details or buttons for each bookmark -->
+              </div>
+            `;
+          });
+        };
+        
+        generateBookmarksHTML(bookmarks);
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/macy@2"></script>
+    <!-- <script src="./scripts/index.js" ></script> -->
+
+</body>
+</html>

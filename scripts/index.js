@@ -63,8 +63,8 @@ const generateHTML = (images) => {
             <img src="${img.urls.small}" class="fetch-img" />
 
               <div class="icons top-icons">
-                <button class="share-btn">
-                  <i class="uil uil-share-alt"></i>
+                <button id="bookmark-btn" onclick="bookmarkImage('${img.id}')">
+                  <i class="fas fa-bookmark"></i>
                 </button>
               </div>
               <div class="details">
@@ -85,6 +85,7 @@ const generateHTML = (images) => {
   fixStartUpBug();
 };
 
+
 const getImages = async (apiURL) => {
   try {
     const response = await fetch(apiURL, {
@@ -98,14 +99,15 @@ const getImages = async (apiURL) => {
     const data = await response.json();
     // console.log(data);
 
-    let photos = [];
+    let images = [];
 
     if (data.results) {
-      photos = data.results;
+      images = data.results;
     } else {
-      photos = data;
+      images = data;
     }
-    generateHTML(photos);
+    generateHTML(images);
+    bookmarkImage(images);
   } catch (error) {
     console.error(error);
   }
@@ -144,6 +146,23 @@ searchButton.addEventListener("click", () => {
   loadImages();
 });
 
+const bookmarkImage = (imageId, images) => {
+  console.log(imageId);
+  const image = images.find((img) => img.id === imageId);
+  console.log(image);
+  if (image) {
+    const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
+    if (!bookmarks.some((b) => b.id === imageId)) {
+      bookmarks.push(image);
+      console.log("hello");
+      console.log("Bookmarks:", bookmarks);
+      localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+    } else {
+      alert("Image already bookmarked!");
+    }
+  }
+};
+
 loadImages();
 
 const handleScroll = () => {
@@ -154,3 +173,4 @@ const handleScroll = () => {
 };
 
 window.addEventListener("scroll", handleScroll);
+
