@@ -8,6 +8,7 @@ let currentPage = 1;
 let isFetching = false;
 let hasMore = true;
 let searchTerm = null;
+let bookmarkedImages = [];
 
 const macyInstance = Macy({
   container: imageWrapper,
@@ -57,15 +58,16 @@ const generateHTML = (images) => {
   imageWrapper.innerHTML += images
 
     .map(
-      (img) =>
-        `
+      (img) => {
+        const isBookmarked = bookmarkedImages.includes(img.id);
+        return `
         <div class="grid-item card" >
             <img src="${img.urls.small}" class="fetch-img" />
 
               <div class="icons top-icons">
-                <button id="bookmark-btn" onclick="bookmarkImage('${img.id}')">
-                  <i class="fas fa-bookmark"></i>
-                </button>
+              <button class="bookmark-btn ${isBookmarked ? 'bookmarked' : ''}" data-img-id="${img.id}" data-bookmarked="${isBookmarked}">
+            <i class="far fa-bookmark"></i>
+          </button>
               </div>
               <div class="details">
                 <div class="photographer">
@@ -80,7 +82,7 @@ const generateHTML = (images) => {
               </div>
         </div>
       `
-    )
+      })
     .join("");
   fixStartUpBug();
 };
@@ -107,7 +109,6 @@ const getImages = async (apiURL) => {
       images = data;
     }
     generateHTML(images);
-    bookmarkImage(images);
   } catch (error) {
     console.error(error);
   }
@@ -146,22 +147,44 @@ searchButton.addEventListener("click", () => {
   loadImages();
 });
 
-const bookmarkImage = (imageId, images) => {
-  console.log(imageId);
-  const image = images.find((img) => img.id === imageId);
-  console.log(image);
-  if (image) {
-    const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
-    if (!bookmarks.some((b) => b.id === imageId)) {
-      bookmarks.push(image);
-      console.log("hello");
-      console.log("Bookmarks:", bookmarks);
-      localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
-    } else {
-      alert("Image already bookmarked!");
-    }
+const saveBookmarksToLocalStorage = () => {
+  localStorage.setItem('bookmarkedImages', JSON.stringify(bookmarkedImages));
+};
+
+const loadBookmarksFromLocalStorage = () => {
+  const bookmarks = localStorage.getItem('bookmarkedImages');
+  if (bookmarks) {
+    bookmarkedImages = JSON.parse(bookmarks);
   }
 };
+
+loadBookmarksFromLocalStorage();
+
+const handleBookmark = (e) => {
+  const button = e.target.closest(".bookmark-btn");
+  if (button) {
+    const imgId = button.getAttribute("data-img-id");
+    const isBookmarked = button.getAttribute("data-bookmarked");
+
+    if (isBookmarked === "true") {
+      const index = bookmarkedImages.indexOf(imgId);
+      if (index !== -1) {
+        bookmarkedImages.splice(index, 1);
+      }
+      button.setAttribute("data-bookmarked", "false");
+      button.innerHTML = '<i class="far fa-bookmark"></i>';
+    } else {
+      bookmarkedImages.push(imgId);
+      button.setAttribute("data-bookmarked", "true");
+      button.innerHTML = '<i class="fas fa-bookmark"></i>';
+    } 
+
+    saveBookmarksToLocalStorage();
+  }
+};
+
+
+imageWrapper.addEventListener("click", handleBookmark);
 
 loadImages();
 
