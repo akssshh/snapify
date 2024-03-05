@@ -2,7 +2,6 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const query = urlParams.get("query").toLowerCase();
-// console.log("query from query.js" + query);
 
 let imageWrapper; // Declare imageWrapper variable globally
 
