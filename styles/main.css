@@ -28,7 +28,6 @@
 }
 
 .card:hover .icons {
-  /* bottom: 0; */
   opacity: 1;
 }
 
@@ -58,18 +57,15 @@
   background: linear-gradient(to top, rgba(0, 0, 0, 1), transparent);
 }
 
-.images .icons {
+.images .icons  {
   position: absolute;
   z-index: 4;
-  width: 100%;
   top: 0;
-  right: -230px;
+  right: 8px;
   display: flex;
   align-items: center;
-  padding: 10px 20px;
+  padding: 10px 10px;
   justify-content: space-between;
-  transition: top 0.5s ease;
-  /* background: linear-gradient(to top, rgba(0, 0, 0, 1), transparent); */
   opacity: 0;
 }
 
