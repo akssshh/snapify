@@ -57,36 +57,40 @@ const generateHTML = (images) => {
 
   imageWrapper.innerHTML += images
 
-    .map(
-      (img) => {
-        const isBookmarked = bookmarkedImages.includes(img.id);
-        return `
+    .map((img) => {
+      const isBookmarked = bookmarkedImages.includes(img.id);
+      return `
         <div class="grid-item card" >
             <img src="${img.urls.small}" class="fetch-img" />
 
               <div class="icons top-icons">
-              <button class="bookmark-btn ${isBookmarked ? 'bookmarked' : ''}" data-img-id="${img.id}" data-bookmarked="${isBookmarked}">
-            <i class="far fa-bookmark"></i>
+              <button class="bookmark-btn ${
+                isBookmarked ? "bookmarked" : ""
+              }" data-img-id="${img.id}" data-bookmarked="${isBookmarked}">
+              <i class="${isBookmarked ? 'fas' : 'far'} fa-bookmark"></i>
           </button>
               </div>
               <div class="details">
                 <div class="photographer">
-                    <img src="${img.user.profile_image.small}" class="photographer_img" />
+                    <img src="${
+                      img.user.profile_image.small
+                    }" class="photographer_img" />
                     <span>${img.user.name}</span>
                 </div>
                 <div class="">
-                  <button class="download-btn" onclick="downloadImg('${img.urls.small}');" >
+                  <button class="download-btn" onclick="downloadImg('${
+                    img.urls.small
+                  }');" >
                     <i class="uil uil-import"></i>
                   </button>
                 </div>
               </div>
         </div>
-      `
-      })
+      `;
+    })
     .join("");
   fixStartUpBug();
 };
-
 
 const getImages = async (apiURL) => {
   try {
@@ -148,11 +152,11 @@ searchButton.addEventListener("click", () => {
 });
 
 const saveBookmarksToLocalStorage = () => {
-  localStorage.setItem('bookmarkedImages', JSON.stringify(bookmarkedImages));
+  localStorage.setItem("bookmarkedImages", JSON.stringify(bookmarkedImages));
 };
 
 const loadBookmarksFromLocalStorage = () => {
-  const bookmarks = localStorage.getItem('bookmarkedImages');
+  const bookmarks = localStorage.getItem("bookmarkedImages");
   if (bookmarks) {
     bookmarkedImages = JSON.parse(bookmarks);
   }
@@ -177,12 +181,11 @@ const handleBookmark = (e) => {
       bookmarkedImages.push(imgId);
       button.setAttribute("data-bookmarked", "true");
       button.innerHTML = '<i class="fas fa-bookmark"></i>';
-    } 
+    }
 
     saveBookmarksToLocalStorage();
   }
 };
-
 
 imageWrapper.addEventListener("click", handleBookmark);
 
@@ -196,4 +199,3 @@ const handleScroll = () => {
 };
 
 window.addEventListener("scroll", handleScroll);
-

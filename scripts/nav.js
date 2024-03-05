@@ -11,37 +11,37 @@ window.addEventListener('scroll', function() {
 });
 
 
-// const body = document.querySelector("body"),
-//   nav = document.querySelector("nav"),
-//   modeToggle = document.querySelectorAll(".dark-light"),
-//   searchToggle = document.querySelectorAll(".searchToggle"),
-//   sidebarOpen = document.querySelectorAll(".sidebarOpen"), 
-//   siderbarClose = document.querySelectorAll(".siderbarClose"); 
+const body = document.querySelector("body"),
+  nav = document.querySelector("nav"),
+  modeToggle = document.querySelectorAll(".dark-light"),
+  searchToggle = document.querySelectorAll(".searchToggle"),
+  sidebarOpen = document.querySelectorAll(".sidebarOpen"), 
+  siderbarClose = document.querySelectorAll(".siderbarClose"); 
 
-// function toggleSidebar() {
-//   nav.classList.toggle("active");
-// }
+function toggleSidebar() {
+  nav.classList.toggle("active");
+}
 
 
-// sidebarOpen.forEach((element) => {
-//   element.addEventListener("click", (e) => {
-//     toggleSidebar();
-//     console.log("clicked");
-//     e.stopPropagation(); 
-//   });
-// });
+sidebarOpen.forEach((element) => {
+  element.addEventListener("click", (e) => {
+    toggleSidebar();
+    console.log("clicked");
+    e.stopPropagation(); 
+  });
+});
 
-// siderbarClose.forEach((element) => {
-//   element.addEventListener("click", (e) => {
-//     toggleSidebar();
-//     e.stopPropagation(); 
-//   });
-// });
+siderbarClose.forEach((element) => {
+  element.addEventListener("click", (e) => {
+    toggleSidebar();
+    e.stopPropagation(); 
+  });
+});
 
-// body.addEventListener("click", (e) => {
-//   if (!nav.contains(e.target) && !sidebarOpen.contains(e.target)) {
-//     nav.classList.remove("active");
-//   }
-// });
+body.addEventListener("click", (e) => {
+  if (!nav.contains(e.target) && !sidebarOpen.contains(e.target)) {
+    nav.classList.remove("active");
+  }
+});
 
 
