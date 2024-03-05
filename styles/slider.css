@@ -12,7 +12,6 @@
 }
 .slider::-webkit-scrollbar {
   height: 5px;
-  /* width: 150px; */
   display: none;
 }
 
