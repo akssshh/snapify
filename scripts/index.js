@@ -68,7 +68,7 @@ const generateHTML = (images) => {
                 isBookmarked ? "bookmarked" : ""
               }" data-img-id="${img.id}" data-bookmarked="${isBookmarked}">
               <i class="${isBookmarked ? 'fas' : 'far'} fa-bookmark"></i>
-          </button>
+              </button>
               </div>
               <div class="details">
                 <div class="photographer">
