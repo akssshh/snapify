@@ -2,6 +2,7 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const query = urlParams.get("query").toLowerCase();
+const wrapper = document.querySelector(".grid");
 
 let imageWrapper; // Declare imageWrapper variable globally
 
@@ -10,6 +11,7 @@ let currentPage = 1;
 let isFetching = false;
 let hasMore = true;
 let searchTerm = null;
+let bookmarkedImages = [];
 
 let macyInstance; // Declare Macy instance variable globally
 
@@ -31,17 +33,21 @@ const generateHTML = (images) => {
 
   // Map over the images array and generate HTML markup for each image
   const htmlMarkup = images
-    .map(
-      (img) =>
-        `
-      <div class="grid-item card" >
+    .map((img) => {
+      const isBookmarked = bookmarkedImages.includes(img.id);
+       return `
+        <div class="grid-item card" >
             <img src="${img.urls.small}" class="fetch-img" />
-            <div class="details">
-              <div class="icons top-icons">
-                <button class="share-btn">
-                  <i class="uil uil-share-alt"></i>
+                
+                 <div class="icons top-icons">
+                <button class="bookmark-btn ${
+                  isBookmarked ? "bookmarked" : ""
+                  }" data-img-id="${img.id}" data-bookmarked="${isBookmarked}" id="bookmarkBtn" >
+                  <i class="${isBookmarked ? 'fas' : 'far'} fa-bookmark"></i>
                 </button>
               </div>
+
+            <div class="details">
                 <div class="photographer">
                     <img src="${img.user.profile_image.small}" class="photographer_img" />
                     <span>${img.user.name}</span>
@@ -52,11 +58,10 @@ const generateHTML = (images) => {
                 </button>
               </div>
             </div>
-        </div>
-    `
-    )
+          </div>
+        `;
+        })
     .join("");
-
   imageWrapper.innerHTML += htmlMarkup;
 
   fixStartUpBug(); 
@@ -137,6 +142,44 @@ const downloadImg = (imgUrl) => {
     })
     .catch(() => alert("Failed to download image!"));
 };
+
+const saveBookmarksToLocalStorage = () => {
+  localStorage.setItem("bookmarkedImages", JSON.stringify(bookmarkedImages));
+};
+
+const loadBookmarksFromLocalStorage = () => {
+  const bookmarks = localStorage.getItem("bookmarkedImages");
+  if (bookmarks) {
+    bookmarkedImages = JSON.parse(bookmarks);
+  }
+};
+
+loadBookmarksFromLocalStorage();
+
+const handleBookmark = (e) => {
+  const button = e.target.closest(".bookmark-btn");
+  if (button) {
+    const imgId = button.getAttribute("data-img-id");
+    const isBookmarked = button.getAttribute("data-bookmarked");
+
+    if (isBookmarked === "true") {
+      const index = bookmarkedImages.indexOf(imgId);
+      if (index !== -1) {
+        bookmarkedImages.splice(index, 1);
+      }
+      button.setAttribute("data-bookmarked", "false");
+      button.innerHTML = '<i class="far fa-bookmark"></i>';
+    } else {
+      bookmarkedImages.push(imgId);
+      button.setAttribute("data-bookmarked", "true");
+      button.innerHTML = '<i class="fas fa-bookmark"></i>';
+    }
+
+    saveBookmarksToLocalStorage();
+  }
+};
+
+wrapper.addEventListener("click", handleBookmark);
 
 const handleScroll = () => {
   if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {

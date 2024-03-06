@@ -64,12 +64,13 @@ const generateHTML = (images) => {
             <img src="${img.urls.small}" class="fetch-img" />
 
               <div class="icons top-icons">
-              <button class="bookmark-btn ${
-                isBookmarked ? "bookmarked" : ""
-              }" data-img-id="${img.id}" data-bookmarked="${isBookmarked}">
-              <i class="${isBookmarked ? 'fas' : 'far'} fa-bookmark"></i>
-              </button>
+                <button class="bookmark-btn ${
+                  isBookmarked ? "bookmarked" : ""
+                  }" data-img-id="${img.id}" data-bookmarked="${isBookmarked}">
+                  <i class="${isBookmarked ? 'fas' : 'far'} fa-bookmark"></i>
+                </button>
               </div>
+              
               <div class="details">
                 <div class="photographer">
                     <img src="${
