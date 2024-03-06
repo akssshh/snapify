@@ -39,7 +39,7 @@ const generateHTML = (images) => {
         <div class="grid-item card" >
             <img src="${img.urls.small}" class="fetch-img" />
                 
-                 <div class="icons top-icons">
+              <div class="icons top-icons">
                 <button class="bookmark-btn ${
                   isBookmarked ? "bookmarked" : ""
                   }" data-img-id="${img.id}" data-bookmarked="${isBookmarked}" id="bookmarkBtn" >

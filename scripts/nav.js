@@ -39,9 +39,9 @@ siderbarClose.forEach((element) => {
 });
 
 body.addEventListener("click", (e) => {
-  // if (!nav.contains(e.target) && !sidebarOpen.contains(e.target)) {
-  //   nav.classList.remove("active");
-  // }
+  if (!nav.contains(e.target) && !sidebarOpen.contains(e.target)) {
+    nav.classList.remove("active");
+  }
 });
 
 

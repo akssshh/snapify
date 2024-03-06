@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const bookmarkedImagesContainer = document.getElementById("home-section");
+  const bookmarkedImagesContainer = document.querySelector(".grid");
 
   const loadBookmarksFromLocalStorage = () => {
     const bookmarks = localStorage.getItem("bookmarkedImages");
@@ -40,12 +40,29 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         const img = await response.json();
 
-        const imgElement = document.createElement("div");
-        imgElement.classList.add("grid-item"); // Add the grid-item class
-        imgElement.innerHTML = `
+        bookmarkedImagesContainer.innerHTML += `
+                  <div class="grid-item card" >
                     <img src="${img.urls.small}" class="fetch-img" />
+
+                    <div class="icons top-icons">
+                    <button class="bookmark-btn" id="bookmarkBtn" >
+                      <i class="fas fa-bookmark"></i>
+                    </button>
+                  </div>
+
+                    <div class="details">
+                       <div class="photographer">
+                         <img src="${img.user.profile_image.small}" class="photographer_img" />
+                          <span>${img.user.name}</span>
+                        </div>
+                        <div class="">
+                          <button class="download-btn" onclick="downloadImg('${img.urls.small}');" >
+                            <i class="uil uil-import"></i>
+                          </button>
+                       </div>
+                    </div>
+                  </div>
                 `;
-        bookmarkedImagesContainer.appendChild(imgElement);
       } catch (error) {
         console.error("Error fetching image data:", error);
       }
