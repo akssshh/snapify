@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
       x: 17,
       y: 17,
     },
-    columns: 3, // Set the number of columns as per your design
+    columns: 3,
     breakAt: {
       1600: 5,
       1500: 4,
@@ -41,12 +41,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const img = await response.json();
 
         bookmarkedImagesContainer.innerHTML += `
-                  <div class="grid-item card" >
+                  <div class="grid-item card" data-img-id="${img.id}">
                     <img src="${img.urls.small}" class="fetch-img" />
 
                     <div class="icons top-icons">
                     <button class="bookmark-btn" id="bookmarkBtn" >
-                      <i class="fas fa-bookmark"></i>
+                    <i class="uil uil-trash"></i>
                     </button>
                   </div>
 
@@ -73,4 +73,27 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   displayBookmarkedImages();
+
+  
+  const handleBookmarkRemoval = (e) => {
+    const button = e.target.closest(".bookmark-btn");
+    if (button) {
+      const gridItem = button.closest(".grid-item");
+      const imgId = gridItem.getAttribute("data-img-id");
+      
+  
+      const bookmarks = loadBookmarksFromLocalStorage();
+      const updatedBookmarks = bookmarks.filter(id => id !== imgId);
+      localStorage.setItem("bookmarkedImages", JSON.stringify(updatedBookmarks));
+      
+     
+      gridItem.remove();
+
+     
+      macyInstance.recalculate(true, true);
+    }
+  };
+
+  
+  bookmarkedImagesContainer.addEventListener("click", handleBookmarkRemoval);
 });
