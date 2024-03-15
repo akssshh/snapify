@@ -25,11 +25,10 @@ const titles = [
 
 // Function to display the slides
 function displaySlides() {
-  
+
   // Clear the slider container
   sliderContainer.innerHTML = "";
 
-  // Iterate over the names array and create a slide for each
   titles.forEach((title) => {
     const slide = document.createElement("div");
     slide.classList.add("slide");
@@ -45,7 +44,7 @@ function displaySlides() {
   });
 }
 
-// Call the displaySlides function to initially display the slides
+
 displaySlides();
 
 function prev() {

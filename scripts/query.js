@@ -29,8 +29,6 @@ const generateHTML = (images) => {
     return; // Exit the function if imageWrapper is null
   }
 
-  console.log(images);
-
   // Map over the images array and generate HTML markup for each image
   const htmlMarkup = images
     .map((img) => {
@@ -109,7 +107,6 @@ const getImages = async (apiURL) => {
     }
 
     const data = await response.json();
-    console.log(data);
 
     let photos = [];
 
@@ -125,7 +122,6 @@ const getImages = async (apiURL) => {
 };
 
 const loadImages = (query) => {
-  // console.log("query from load images" + query);
   const apiUrl = `https://api.unsplash.com/search/photos?client_id=${apiKey}&page=${currentPage}&query=${query}`;
   getImages(apiUrl);
 };

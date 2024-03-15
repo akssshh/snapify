@@ -43,6 +43,8 @@
   color: #444;
   cursor: pointer;
   z-index: 1001;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 .control-next-btn {
   position: absolute;
@@ -57,4 +59,6 @@
   user-select: none;
   color: #444;
   cursor: pointer;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }

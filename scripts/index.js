@@ -50,7 +50,6 @@ const downloadImg = (imgUrl) => {
 };
 
 const generateHTML = (images) => {
-  // console.log(images)
   if (currentPage === 1) {
     imageWrapper.innerHTML = "";
   }
@@ -104,7 +103,6 @@ const getImages = async (apiURL) => {
     }
 
     const data = await response.json();
-    // console.log(data);
 
     let images = [];
 

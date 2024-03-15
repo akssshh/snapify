@@ -20,13 +20,21 @@ const body = document.querySelector("body"),
 
 function toggleSidebar() {
   nav.classList.toggle("active");
+  body.classList.toggle("sidebar-active");
+
 }
+
+function preventDefaultAction(event) {
+  event.preventDefault();
+}
+
+body.addEventListener("click", preventDefaultAction);
+
 
 
 sidebarOpen.forEach((element) => {
   element.addEventListener("click", (e) => {
     toggleSidebar();
-    console.log("clicked");
     e.stopPropagation(); 
   });
 });
@@ -37,6 +45,7 @@ siderbarClose.forEach((element) => {
     e.stopPropagation(); 
   });
 });
+
 
 body.addEventListener("click", (e) => {
   if (!nav.contains(e.target) && !sidebarOpen.contains(e.target)) {
