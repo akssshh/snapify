@@ -25,6 +25,7 @@ const titles = [
 
 // Function to display the slides
 function displaySlides() {
+  
   // Clear the slider container
   sliderContainer.innerHTML = "";
 
