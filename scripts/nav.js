@@ -28,7 +28,6 @@ function preventDefaultAction(event) {
   event.preventDefault();
 }
 
-body.addEventListener("click", preventDefaultAction);
 
 
 
