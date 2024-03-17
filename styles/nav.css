@@ -135,7 +135,6 @@ body.dark {
 
 nav.active ~ .overlay {
   display: block;
-  
 }
 
 .sidebar-active {
@@ -359,8 +358,8 @@ body.dark .search-field i {
     display: block;
   }
 
-  .menu-items li {
-    display: none;
+  .menu-items li a {
+    color: white;
   }
 
   .menu {
