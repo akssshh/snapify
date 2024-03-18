@@ -65,8 +65,8 @@ const generateHTML = (images) => {
               <div class="icons top-icons">
                 <button class="bookmark-btn ${
                   isBookmarked ? "bookmarked" : ""
-                  }" data-img-id="${img.id}" data-bookmarked="${isBookmarked}">
-                  <i class="${isBookmarked ? 'fas' : 'far'} fa-bookmark"></i>
+                }" data-img-id="${img.id}" data-bookmarked="${isBookmarked}">
+                  <i class="${isBookmarked ? "fas" : "far"} fa-bookmark"></i>
                 </button>
               </div>
               
@@ -90,6 +90,9 @@ const generateHTML = (images) => {
     })
     .join("");
   fixStartUpBug();
+
+  searchInput.value = "";
+  floatSearchInput.value = "";
 };
 
 const getImages = async (apiURL) => {
@@ -124,7 +127,6 @@ const loadImages = (title) => {
     ? `https://api.unsplash.com/search/photos?client_id=${apiKey}&page=${currentPage}&query=${searchTerm}`
     : apiUrl;
   getImages(apiUrl);
-  // currentPage++;
 };
 
 const loadSearchImages = (e) => {
@@ -192,8 +194,13 @@ loadImages();
 
 const handleScroll = () => {
   if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-    loadImages();
-    currentPage++;
+    if (searchTerm) {
+      loadImages(searchTerm);
+      currentPage++;
+    } else {
+      loadImages();
+      currentPage++;
+    }
   }
 };
 

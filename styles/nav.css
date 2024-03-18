@@ -367,9 +367,13 @@ body.dark .search-field i {
     font-size: 1.5rem;
   }
 
+  .logo-toggle a {
+    text-decoration: none;
+    color: white;
+  }
+
   .menu-items {
     flex-direction: column;
-    /* padding: 20px; */
     text-align: center;
     padding: 50px 0px;
     gap: 30px;
