@@ -321,7 +321,6 @@ body.dark .search-field i {
 .float-navbar .menu-items {
   order: 2;
   display: flex;
-  /* position: absolute; */
   margin-right: 10px;
   margin-top: 10px;
 }
@@ -358,18 +357,25 @@ body.dark .search-field i {
     display: block;
   }
 
+  .menu .logo-toggle .logo a {
+    color: black;
+  }
+  
+
+  .nav-links li a {
+    color: black;
+  }
+
   .menu-items li {
     margin-left: 0;
   }
 
   .menu-items li a {
-    color: white;
     font-size: 1.5rem;
   }
 
   .logo-toggle a {
     text-decoration: none;
-    color: white;
   }
 
   .menu-items {
@@ -386,7 +392,7 @@ body.dark .search-field i {
     right: -330px;
     top: 0;
     padding: 20px;
-    background-color: var(--side-nav);
+    background-color: white;
     z-index: 100;
     transition: all 0.4s ease;
   }
@@ -413,7 +419,7 @@ body.dark .search-field i {
   }
 
   .logo-toggle .siderbarClose {
-    color: var(--text-color);
+    color: black;
     font-size: 24px;
     cursor: pointer;
   }
