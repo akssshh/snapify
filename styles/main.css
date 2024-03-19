@@ -1,7 +1,7 @@
 * {
-	box-sizing: border-box;
-	padding: 0;
-	margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 .container {
@@ -14,7 +14,6 @@
   border-radius: 8px;
 }
 
-
 .card:hover {
   transform: scale(1.1);
   position: relative;
@@ -24,7 +23,6 @@
 
 .card:hover .details {
   bottom: 0;
-  
 }
 
 .card:hover .icons {
@@ -57,7 +55,7 @@
   background: linear-gradient(to top, rgba(0, 0, 0, 1), transparent);
 }
 
-.images .icons  {
+.images .icons {
   position: absolute;
   z-index: 4;
   top: 0;
@@ -69,8 +67,6 @@
   opacity: 0;
 }
 
-
-
 button,
 i {
   outline: none;
@@ -79,12 +75,12 @@ i {
   border-radius: 5px;
   transition: 0.2s ease;
 }
-.details button, .icons button {
+.details button,
+.icons button {
   background: #fff;
   font-size: 1.1rem;
   padding: 5px 10px;
 }
-
 
 .photographer {
   color: #fff;
@@ -106,7 +102,6 @@ i {
   border-radius: 50%;
 }
 
-
 .bookmark-icon i {
   font-size: 24px;
   color: white;
@@ -115,9 +110,109 @@ i {
   padding: 5px;
 }
 
+/* preview */
+
+.lightbox {
+  z-index: 100;
+  position: fixed;
+  visibility: hidden;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.lightbox.show {
+  visibility: visible;
+}
+
+.lightbox .wrapper-preview {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  padding: 20px;
+  max-width: 850px;
+  background: #fff;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.9);
+  transition: transform 0.1s ease;
+}
+
+.lightbox.show .wrapper-preview {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.wrapper-preview header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .photographer {
+  color: #333;
+}
+
+header .photographer i {
+  font-size: 1.7rem;
+  cursor: auto;
+}
+
+header .photographer span {
+  font-size: 1.2rem;
+}
+
+header .buttons i, .lightbox-import-btn {
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  color: #fff;
+  font-size: 1.2rem;
+  line-height: 40px;
+  text-align: center;
+  background: #8a6cff;
+  border-radius: 4px;
+  transition: 0.2s ease;
+}
+
+header .buttons i:first-child:hover {
+  background: #704dff;
+}
+
+header .buttons i:last-child {
+  margin-left: 10px;
+  font-size: 1.25rem;
+  background: #6c757d;
+}
+
+header .buttons i:last-child:hover {
+  background: #5f666d;
+}
+
+.lightbox-import-btn {
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
+}
+
+
+.wrapper-preview .preview-img {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.preview-img .img {
+  max-height: 65vh;
+}
+.preview-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 
 @media screen and (max-width: 768px) {
-  
   .card:hover {
     transform: none;
     position: static;

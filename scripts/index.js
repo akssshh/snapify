@@ -2,6 +2,8 @@ const imageWrapper = document.querySelector(".grid");
 const searchInput = document.querySelector("#search-input");
 const floatSearchInput = document.getElementById("float-search-input");
 const searchButton = document.querySelector("#search-button");
+const lightbox = document.querySelector(".lightbox");
+const closeImgBtn = lightbox.querySelector(".close-icon");
 
 const apiKey = "TtUUhp1lrnNSVzskUf6fQ3zSJEmTaJ_3MSDkbz5oDLQ";
 let currentPage = 1;
@@ -49,6 +51,25 @@ const downloadImg = (imgUrl) => {
     .catch(() => alert("Failed to download image!"));
 };
 
+const showLightbox = ( name, img, profile) => {
+  // Showing lightbox and setting img source, name and button attribute
+
+  lightbox.querySelector(".main-img").src = img;
+  lightbox.querySelector("span").innerText = name;
+  lightbox.querySelector(".photographer_profile").src = profile;
+  // downloadImgBtn.setAttribute("data-img", img);
+  lightbox.classList.add("show");
+  document.body.style.overflow = "hidden";
+}
+
+const hideLightbox = () => {
+  // Hiding lightbox on close icon click
+  lightbox.classList.remove("show");
+  document.body.style.overflow = "auto";
+}
+
+closeImgBtn.addEventListener("click", hideLightbox); 
+
 const generateHTML = (images) => {
   if (currentPage === 1) {
     imageWrapper.innerHTML = "";
@@ -60,7 +81,7 @@ const generateHTML = (images) => {
       const isBookmarked = bookmarkedImages.includes(img.id);
       return `
         <div class="grid-item card" >
-            <img src="${img.urls.small}" class="fetch-img" />
+            <img onclick="showLightbox( '${img.user.name}', '${img.urls.regular}', '${img.user.profile_image.small}')" src="${img.urls.regular}" class="fetch-img" />
 
               <div class="icons top-icons">
                 <button class="bookmark-btn ${
@@ -189,6 +210,7 @@ const handleBookmark = (e) => {
 };
 
 imageWrapper.addEventListener("click", handleBookmark);
+
 
 loadImages();
 

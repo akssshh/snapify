@@ -4,7 +4,7 @@ const urlParams = new URLSearchParams(queryString);
 const query = urlParams.get("query").toLowerCase();
 const wrapper = document.querySelector(".grid");
 
-let imageWrapper; // Declare imageWrapper variable globally
+let imageWrapper; 
 
 const apiKey = "12gZb1rLsA7rqFgAOuzVaj9Tyi1vpCmsoz1SLzgm_Os";
 let currentPage = 1;
@@ -13,7 +13,7 @@ let hasMore = true;
 let searchTerm = null;
 let bookmarkedImages = [];
 
-let macyInstance; // Declare Macy instance variable globally
+let macyInstance; 
 
 const fixStartUpBug = () => {
   macyInstance.runOnImageLoad(() => {
@@ -22,14 +22,14 @@ const fixStartUpBug = () => {
   }, true);
 };
 
-// Define generateHTML function
+
 const generateHTML = (images) => {
   if (!imageWrapper) {
     console.error("imageWrapper is null or undefined");
     return; // Exit the function if imageWrapper is null
   }
 
-  // Map over the images array and generate HTML markup for each image
+
   const htmlMarkup = images
     .map((img) => {
       const isBookmarked = bookmarkedImages.includes(img.id);
@@ -51,7 +51,7 @@ const generateHTML = (images) => {
                     <span>${img.user.name}</span>
                 </div>
                 <div class="">
-                <button class="download-btn" onclick="downloadImg('${img.urls.small}');" >
+                <button class="download-btn" onclick="downloadImg('${img.urls.full}');" >
                   <i class="uil uil-import"></i>
                 </button>
               </div>
@@ -72,10 +72,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!imageWrapper) {
     console.error("Could not find .grid element in the DOM");
-    return; // Exit the event listener if imageWrapper is null
+    return; 
   }
 
-  // Initialize Macy after DOMContentLoaded
+
   macyInstance = Macy({
     container: imageWrapper,
     breakAt: {
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
   loadImages(query);
 });
 
-// Call a function to fetch and display images based on the selected term
+
 const getImages = async (apiURL) => {
   try {
     const response = await fetch(apiURL, {
@@ -126,7 +126,7 @@ const loadImages = (query) => {
   getImages(apiUrl);
 };
 
-// Function to download image
+
 const downloadImg = (imgUrl) => {
   fetch(imgUrl)
     .then((res) => res.blob())
