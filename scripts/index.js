@@ -4,6 +4,7 @@ const floatSearchInput = document.getElementById("float-search-input");
 const searchButton = document.querySelector("#search-button");
 const lightbox = document.querySelector(".lightbox");
 const closePreviewImg = document.querySelector(".close-icon");
+const lightboxImportBtn = document.querySelector(".lightbox-import-btn");
 
 const apiKey = "TtUUhp1lrnNSVzskUf6fQ3zSJEmTaJ_3MSDkbz5oDLQ";
 let currentPage = 1;
@@ -52,15 +53,17 @@ const downloadImg = (imgUrl) => {
 };
 
 const showLightbox = ( name, img, profile) => {
-  // Showing lightbox and setting img source, name and button attribute
 
   lightbox.querySelector(".main-img").src = img;
   lightbox.querySelector("span").innerText = name;
   lightbox.querySelector(".photographer_profile").src = profile;
-  // downloadImgBtn.setAttribute("data-img", img);
+  lightboxImportBtn.setAttribute("data-img", img);
   lightbox.classList.add("show");
   document.body.style.overflow = "hidden";
 }
+
+
+
 
 const hideLightbox = () => {
   // Hiding lightbox on close icon click
@@ -227,4 +230,10 @@ const handleScroll = () => {
 };
 
 window.addEventListener("scroll", handleScroll);
+
+lightboxImportBtn.addEventListener("click", () => {
+  const imgUrl = lightboxImportBtn.getAttribute("data-img");
+  downloadImg(imgUrl);
+});
+
 

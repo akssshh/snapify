@@ -156,6 +156,10 @@ header .photographer {
   color: #333;
 }
 
+.photographer img {
+  border-radius: 50%;
+}
+
 header .photographer i {
   font-size: 1.7rem;
   cursor: auto;
@@ -174,13 +178,9 @@ header .buttons i,
   font-size: 1.2rem;
   line-height: 40px;
   text-align: center;
-  background: #8a6cff;
+  background: black;
   border-radius: 4px;
   transition: 0.2s ease;
-}
-
-header .buttons i:first-child:hover {
-  background: #704dff;
 }
 
 header .buttons i:last-child {
@@ -205,8 +205,9 @@ header .buttons i:last-child:hover {
   margin-top: 25px;
 }
 
-.preview-img .img {
+.preview-img .main-img {
   max-height: 65vh;
+  border-radius: 8px;
 }
 .preview-img img {
   width: 100%;
