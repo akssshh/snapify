@@ -3,7 +3,7 @@ const searchInput = document.querySelector("#search-input");
 const floatSearchInput = document.getElementById("float-search-input");
 const searchButton = document.querySelector("#search-button");
 const lightbox = document.querySelector(".lightbox");
-const closeImgBtn = lightbox.querySelector(".close-icon");
+const closePreviewImg = document.querySelector(".close-icon");
 
 const apiKey = "TtUUhp1lrnNSVzskUf6fQ3zSJEmTaJ_3MSDkbz5oDLQ";
 let currentPage = 1;
@@ -68,7 +68,7 @@ const hideLightbox = () => {
   document.body.style.overflow = "auto";
 }
 
-closeImgBtn.addEventListener("click", hideLightbox); 
+closePreviewImg.addEventListener("click", hideLightbox); 
 
 const generateHTML = (images) => {
   if (currentPage === 1) {
@@ -81,7 +81,7 @@ const generateHTML = (images) => {
       const isBookmarked = bookmarkedImages.includes(img.id);
       return `
         <div class="grid-item card" >
-            <img onclick="showLightbox( '${img.user.name}', '${img.urls.regular}', '${img.user.profile_image.small}')" src="${img.urls.regular}" class="fetch-img" />
+            <img onclick="showLightbox( '${img.user.name}', '${img.urls.regular}', '${img.user.profile_image.small}')" src="${img.urls.small}" class="fetch-img" />
 
               <div class="icons top-icons">
                 <button class="bookmark-btn ${
@@ -227,3 +227,4 @@ const handleScroll = () => {
 };
 
 window.addEventListener("scroll", handleScroll);
+
