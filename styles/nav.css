@@ -359,6 +359,8 @@ body.dark .search-field i {
 
   .menu .logo-toggle .logo a {
     color: black;
+    font-weight: 700;
+    font-size: 1.4rem;
   }
   
 

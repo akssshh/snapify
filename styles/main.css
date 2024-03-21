@@ -226,4 +226,9 @@ header .buttons i:last-child:hover {
   .card:hover .details {
     bottom: 0;
   }
+
+  .lightbox .wrapper-preview {
+    width: 90%;
+  }
+
 }
