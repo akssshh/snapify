@@ -227,6 +227,10 @@ header .buttons i:last-child:hover {
     bottom: 0;
   }
 
+  .lightbox {
+    display: none;
+  }
+
   .lightbox .wrapper-preview {
     width: 90%;
   }
