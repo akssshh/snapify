@@ -1,12 +1,12 @@
 const imageWrapper = document.querySelector(".grid");
 const searchInput = document.querySelector("#search-input");
 const floatSearchInput = document.getElementById("float-search-input");
-const searchButton = document.querySelector("#search-button");
-const lightbox = document.querySelector(".lightbox");
+const searchButtons = document.querySelectorAll("#search-button");
+const preview = document.querySelector(".preview");
 const closePreviewImg = document.querySelector(".close-icon");
-const lightboxImportBtn = document.querySelector(".lightbox-import-btn");
+const previewImportBtn = document.querySelector(".preview-import-btn");
 
-const apiKey = "TtUUhp1lrnNSVzskUf6fQ3zSJEmTaJ_3MSDkbz5oDLQ";
+const apiKey = "_9ydOWriXTLwk3UTf5m7I0itKIjckOwQKzXrPYSAOvc";
 let currentPage = 1;
 let isFetching = false;
 let hasMore = true;
@@ -52,26 +52,26 @@ const downloadImg = (imgUrl) => {
     .catch(() => alert("Failed to download image!"));
 };
 
-const showLightbox = ( name, img, profile) => {
+const showpreview = ( name, img, profile) => {
 
-  lightbox.querySelector(".main-img").src = img;
-  lightbox.querySelector("span").innerText = name;
-  lightbox.querySelector(".photographer_profile").src = profile;
-  lightboxImportBtn.setAttribute("data-img", img);
-  lightbox.classList.add("show");
-  document.body.style.overflow = "hidden";
+  if (window.innerWidth > 768) { 
+    preview.querySelector(".main-img").src = img;
+    preview.querySelector("span").innerText = name;
+    preview.querySelector(".photographer_profile").src = profile;
+    previewImportBtn.setAttribute("data-img", img);
+    preview.classList.add("show");
+    document.body.style.overflow = "hidden";
+  }
 }
 
 
-
-
-const hideLightbox = () => {
-  // Hiding lightbox on close icon click
-  lightbox.classList.remove("show");
+const hidepreview = () => {
+  // Hiding preview on close icon click
+  preview.classList.remove("show");
   document.body.style.overflow = "auto";
 }
 
-closePreviewImg.addEventListener("click", hideLightbox); 
+closePreviewImg.addEventListener("click", hidepreview); 
 
 const generateHTML = (images) => {
   if (currentPage === 1) {
@@ -84,7 +84,7 @@ const generateHTML = (images) => {
       const isBookmarked = bookmarkedImages.includes(img.id);
       return `
         <div class="grid-item card" >
-            <img onclick="showLightbox( '${img.user.name}', '${img.urls.regular}', '${img.user.profile_image.small}')" src="${img.urls.small}" class="fetch-img" />
+            <img onclick="showpreview( '${img.user.name}', '${img.urls.regular}', '${img.user.profile_image.small}')" src="${img.urls.small}" class="fetch-img" />
 
               <div class="icons top-icons">
                 <button class="bookmark-btn ${
@@ -171,9 +171,11 @@ const loadSearchImages = (e) => {
 searchInput.addEventListener("keyup", loadSearchImages);
 floatSearchInput.addEventListener("keyup", loadSearchImages);
 
-searchButton.addEventListener("click", () => {
-  imageWrapper.innerHTML = "";
+searchButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    imageWrapper.innerHTML = "";
   loadImages();
+  })
 });
 
 const saveBookmarksToLocalStorage = () => {
@@ -231,8 +233,8 @@ const handleScroll = () => {
 
 window.addEventListener("scroll", handleScroll);
 
-lightboxImportBtn.addEventListener("click", () => {
-  const imgUrl = lightboxImportBtn.getAttribute("data-img");
+previewImportBtn.addEventListener("click", () => {
+  const imgUrl = previewImportBtn.getAttribute("data-img");
   downloadImg(imgUrl);
 });
 

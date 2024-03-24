@@ -3,17 +3,20 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const query = urlParams.get("query").toLowerCase();
 const wrapper = document.querySelector(".grid");
+const floatSearchInput = document.getElementById("float-search-input");
 
-let imageWrapper; 
+const searchButton = document.querySelector("#search-button");
 
-const apiKey = "12gZb1rLsA7rqFgAOuzVaj9Tyi1vpCmsoz1SLzgm_Os";
+let imageWrapper;
+
+const apiKey = "_9ydOWriXTLwk3UTf5m7I0itKIjckOwQKzXrPYSAOvc";
 let currentPage = 1;
 let isFetching = false;
 let hasMore = true;
 let searchTerm = null;
 let bookmarkedImages = [];
 
-let macyInstance; 
+let macyInstance;
 
 const fixStartUpBug = () => {
   macyInstance.runOnImageLoad(() => {
@@ -22,59 +25,60 @@ const fixStartUpBug = () => {
   }, true);
 };
 
-
 const generateHTML = (images) => {
   if (!imageWrapper) {
     console.error("imageWrapper is null or undefined");
     return; // Exit the function if imageWrapper is null
   }
 
-
   const htmlMarkup = images
     .map((img) => {
       const isBookmarked = bookmarkedImages.includes(img.id);
-       return `
+      return `
         <div class="grid-item card" >
             <img src="${img.urls.small}" class="fetch-img" />
                 
               <div class="icons top-icons">
                 <button class="bookmark-btn ${
                   isBookmarked ? "bookmarked" : ""
-                  }" data-img-id="${img.id}" data-bookmarked="${isBookmarked}" id="bookmarkBtn" >
-                  <i class="${isBookmarked ? 'fas' : 'far'} fa-bookmark"></i>
+                }" data-img-id="${
+        img.id
+      }" data-bookmarked="${isBookmarked}" id="bookmarkBtn" >
+                  <i class="${isBookmarked ? "fas" : "far"} fa-bookmark"></i>
                 </button>
               </div>
 
             <div class="details">
                 <div class="photographer">
-                    <img src="${img.user.profile_image.small}" class="photographer_img" />
+                    <img src="${
+                      img.user.profile_image.small
+                    }" class="photographer_img" />
                     <span>${img.user.name}</span>
                 </div>
                 <div class="">
-                <button class="download-btn" onclick="downloadImg('${img.urls.full}');" >
+                <button class="download-btn" onclick="downloadImg('${
+                  img.urls.full
+                }');" >
                   <i class="uil uil-import"></i>
                 </button>
               </div>
             </div>
           </div>
         `;
-        })
+    })
     .join("");
   imageWrapper.innerHTML += htmlMarkup;
 
-  fixStartUpBug(); 
+  fixStartUpBug();
 };
 
 document.addEventListener("DOMContentLoaded", function () {
-
   imageWrapper = document.querySelector(".grid");
-
 
   if (!imageWrapper) {
     console.error("Could not find .grid element in the DOM");
-    return; 
+    return;
   }
-
 
   macyInstance = Macy({
     container: imageWrapper,
@@ -94,7 +98,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   loadImages(query);
 });
-
 
 const getImages = async (apiURL) => {
   try {
@@ -121,11 +124,15 @@ const getImages = async (apiURL) => {
   }
 };
 
+const loadSearchImages = (searchTerm) => {
+  let apiUrl = `https://api.unsplash.com/search/photos?client_id=${apiKey}&page=${currentPage}&query=${searchTerm}`;
+  getImages(apiUrl);
+};
+
 const loadImages = (query) => {
   const apiUrl = `https://api.unsplash.com/search/photos?client_id=${apiKey}&page=${currentPage}&query=${query}`;
   getImages(apiUrl);
 };
-
 
 const downloadImg = (imgUrl) => {
   fetch(imgUrl)
@@ -177,9 +184,26 @@ const handleBookmark = (e) => {
 
 wrapper.addEventListener("click", handleBookmark);
 
+searchButton.addEventListener("click", () => {
+  const searchTerm = floatSearchInput.value;
+  imageWrapper.innerHTML = "";
+  currentPage = 1;
+  loadSearchImages(searchTerm);
+});
+
+
 const handleScroll = () => {
-  if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-    loadImages(query);
+  if (
+    window.innerHeight + window.scrollY >= document.body.offsetHeight &&
+    !isFetching &&
+    hasMore
+  ) {
+    if (searchTerm) {
+      loadSearchImages(searchTerm);
+      
+    } else {
+      loadImages(query);
+    }
     currentPage++;
   }
 };

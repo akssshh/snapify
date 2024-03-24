@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Image exploring app which uses nasa's open api.",
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
