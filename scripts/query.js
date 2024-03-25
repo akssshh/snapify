@@ -9,7 +9,7 @@ const searchButton = document.querySelector("#search-button");
 
 let imageWrapper;
 
-const apiKey = "_9ydOWriXTLwk3UTf5m7I0itKIjckOwQKzXrPYSAOvc";
+const apiKey = "TtUUhp1lrnNSVzskUf6fQ3zSJEmTaJ_3MSDkbz5oDLQ";
 let currentPage = 1;
 let isFetching = false;
 let hasMore = true;
@@ -125,7 +125,7 @@ const getImages = async (apiURL) => {
 };
 
 const loadSearchImages = (searchTerm) => {
-  let apiUrl = `https://api.unsplash.com/search/photos?client_id=${apiKey}&page=${currentPage}&query=${searchTerm}`;
+  const apiUrl = `https://api.unsplash.com/search/photos?client_id=${apiKey}&page=${currentPage}&query=${searchTerm}`;
   getImages(apiUrl);
 };
 
@@ -185,7 +185,7 @@ const handleBookmark = (e) => {
 wrapper.addEventListener("click", handleBookmark);
 
 searchButton.addEventListener("click", () => {
-  const searchTerm = floatSearchInput.value;
+  searchTerm = floatSearchInput.value;
   imageWrapper.innerHTML = "";
   currentPage = 1;
   loadSearchImages(searchTerm);
