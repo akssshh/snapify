@@ -94,24 +94,6 @@
   font-size: 2.3rem;
 }
 
-/* ===== Colours ===== */
-:root {
-  --body-color: #e4e9f7;
-  --nav-color: #4070f4;
-  --side-nav: #010718;
-  --text-color: #fff;
-  --search-bar: #f2f2f2;
-  --search-text: #010718;
-}
-
-body.dark {
-  --body-color: #18191a;
-  --nav-color: #242526;
-  --side-nav: #242526;
-  --text-color: #ccc;
-  --search-bar: #242526;
-}
-
 .top-nav {
   position: absolute;
   top: 0;
@@ -159,7 +141,7 @@ nav .nav-bar {
 }
 
 nav .nav-bar .sidebarOpen {
-  color: var(--text-color);
+  color: #ccc;
   font-size: 25px;
   padding: 5px;
   cursor: pointer;
@@ -170,7 +152,7 @@ nav .nav-bar .logo a {
   font-size: 2.3rem;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
-  color: var(--text-color);
+  color: #ccc;
   text-decoration: none;
 }
 
@@ -192,7 +174,7 @@ nav .nav-bar .logo a {
   position: relative;
   font-size: 1.5rem;
   font-weight: 400;
-  color: var(--text-color);
+  color: #ccc;
   text-decoration: none;
   padding: 10px;
 }
@@ -207,19 +189,19 @@ nav .nav-bar .logo a {
 }
 
 body.dark .search-field input {
-  color: var(--text-color);
+  color: #ccc;
 }
 
 .search-field i {
   position: absolute;
-  color: var(--nav-color);
+  color: #242526;
   right: 15px;
   font-size: 22px;
   cursor: pointer;
 }
 
 body.dark .search-field i {
-  color: var(--text-color);
+  color: #ccc;
 }
 
 /* float navbar */
@@ -362,7 +344,6 @@ body.dark .search-field i {
     font-weight: 700;
     font-size: 1.4rem;
   }
-  
 
   .nav-links li a {
     color: black;

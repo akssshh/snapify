@@ -1,4 +1,3 @@
-// Get the query parameter from the URL
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const query = urlParams.get("query").toLowerCase();
@@ -9,7 +8,7 @@ const searchButton = document.querySelector("#search-button");
 
 let imageWrapper;
 
-const apiKey = "12gZb1rLsA7rqFgAOuzVaj9Tyi1vpCmsoz1SLzgm_Os";
+const apiKey = "_9ydOWriXTLwk3UTf5m7I0itKIjckOwQKzXrPYSAOvc";
 let currentPage = 1;
 let isFetching = false;
 let hasMore = true;
@@ -135,8 +134,6 @@ const loadImages = (query) => {
   getImages(apiUrl);
 };
 
-
-
 const downloadImg = (imgUrl) => {
   fetch(imgUrl)
     .then((res) => res.blob())
@@ -194,12 +191,11 @@ searchButton.addEventListener("click", () => {
   loadSearchImages(searchTerm);
 });
 
-
 const handleScroll = () => {
   if (
     window.innerHeight + window.scrollY >= document.body.offsetHeight &&
-    !isFetching && 
-    hasMore 
+    !isFetching &&
+    hasMore
   ) {
     if (searchTerm) {
       loadSearchImages(searchTerm);

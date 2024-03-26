@@ -6,7 +6,7 @@ const preview = document.querySelector(".preview");
 const closePreviewImg = document.querySelector(".close-icon");
 const previewImportBtn = document.querySelector(".preview-import-btn");
 
-const apiKey = "12gZb1rLsA7rqFgAOuzVaj9Tyi1vpCmsoz1SLzgm_Os";
+const apiKey = "_9ydOWriXTLwk3UTf5m7I0itKIjckOwQKzXrPYSAOvc";
 let currentPage = 1;
 let isFetching = false;
 let hasMore = true;
@@ -52,9 +52,8 @@ const downloadImg = (imgUrl) => {
     .catch(() => alert("Failed to download image!"));
 };
 
-const showpreview = ( name, img, profile) => {
-
-  if (window.innerWidth > 768) { 
+const showpreview = (name, img, profile) => {
+  if (window.innerWidth > 768) {
     preview.querySelector(".main-img").src = img;
     preview.querySelector("span").innerText = name;
     preview.querySelector(".photographer_profile").src = profile;
@@ -62,16 +61,15 @@ const showpreview = ( name, img, profile) => {
     preview.classList.add("show");
     document.body.style.overflow = "hidden";
   }
-}
-
+};
 
 const hidepreview = () => {
   // Hiding preview on close icon click
   preview.classList.remove("show");
   document.body.style.overflow = "auto";
-}
+};
 
-closePreviewImg.addEventListener("click", hidepreview); 
+closePreviewImg.addEventListener("click", hidepreview);
 
 const generateHTML = (images) => {
   if (currentPage === 1) {
@@ -84,7 +82,11 @@ const generateHTML = (images) => {
       const isBookmarked = bookmarkedImages.includes(img.id);
       return `
         <div class="grid-item card" >
-            <img onclick="showpreview( '${img.user.name}', '${img.urls.regular}', '${img.user.profile_image.small}')" src="${img.urls.small}" class="fetch-img" />
+            <img onclick="showpreview( '${img.user.name}', '${
+        img.urls.regular
+      }', '${img.user.profile_image.small}')" src="${
+        img.urls.small
+      }" class="fetch-img" />
 
               <div class="icons top-icons">
                 <button class="bookmark-btn ${
@@ -171,11 +173,11 @@ const loadSearchImages = (e) => {
 searchInput.addEventListener("keyup", loadSearchImages);
 floatSearchInput.addEventListener("keyup", loadSearchImages);
 
-searchButtons.forEach(button => {
-  button.addEventListener('click', () => {
+searchButtons.forEach((button) => {
+  button.addEventListener("click", () => {
     imageWrapper.innerHTML = "";
-  loadImages();
-  })
+    loadImages();
+  });
 });
 
 const saveBookmarksToLocalStorage = () => {
@@ -216,7 +218,6 @@ const handleBookmark = (e) => {
 
 imageWrapper.addEventListener("click", handleBookmark);
 
-
 loadImages();
 
 const handleScroll = () => {
@@ -237,5 +238,3 @@ previewImportBtn.addEventListener("click", () => {
   const imgUrl = previewImportBtn.getAttribute("data-img");
   downloadImg(imgUrl);
 });
-
-

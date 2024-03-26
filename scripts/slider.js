@@ -25,8 +25,6 @@ const titles = [
 
 // Function to display the slides
 function displaySlides() {
-
-  // Clear the slider container
   sliderContainer.innerHTML = "";
 
   titles.forEach((title) => {
@@ -43,7 +41,6 @@ function displaySlides() {
     sliderContainer.appendChild(slide);
   });
 }
-
 
 displaySlides();
 

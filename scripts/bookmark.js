@@ -74,26 +74,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   displayBookmarkedImages();
 
-  
   const handleBookmarkRemoval = (e) => {
     const button = e.target.closest(".bookmark-btn");
     if (button) {
       const gridItem = button.closest(".grid-item");
       const imgId = gridItem.getAttribute("data-img-id");
-      
-  
+
       const bookmarks = loadBookmarksFromLocalStorage();
-      const updatedBookmarks = bookmarks.filter(id => id !== imgId);
-      localStorage.setItem("bookmarkedImages", JSON.stringify(updatedBookmarks));
-      
-     
+      const updatedBookmarks = bookmarks.filter((id) => id !== imgId);
+      localStorage.setItem(
+        "bookmarkedImages",
+        JSON.stringify(updatedBookmarks)
+      );
+
       gridItem.remove();
 
-     
       macyInstance.recalculate(true, true);
     }
   };
 
-  
   bookmarkedImagesContainer.addEventListener("click", handleBookmarkRemoval);
 });
