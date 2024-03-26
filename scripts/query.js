@@ -9,7 +9,7 @@ const searchButton = document.querySelector("#search-button");
 
 let imageWrapper;
 
-const apiKey = "TtUUhp1lrnNSVzskUf6fQ3zSJEmTaJ_3MSDkbz5oDLQ";
+const apiKey = "12gZb1rLsA7rqFgAOuzVaj9Tyi1vpCmsoz1SLzgm_Os";
 let currentPage = 1;
 let isFetching = false;
 let hasMore = true;
@@ -26,6 +26,7 @@ const fixStartUpBug = () => {
 };
 
 const generateHTML = (images) => {
+  isFetching = false;
   if (!imageWrapper) {
     console.error("imageWrapper is null or undefined");
     return; // Exit the function if imageWrapper is null
@@ -134,6 +135,8 @@ const loadImages = (query) => {
   getImages(apiUrl);
 };
 
+
+
 const downloadImg = (imgUrl) => {
   fetch(imgUrl)
     .then((res) => res.blob())
@@ -195,16 +198,16 @@ searchButton.addEventListener("click", () => {
 const handleScroll = () => {
   if (
     window.innerHeight + window.scrollY >= document.body.offsetHeight &&
-    !isFetching &&
-    hasMore
+    !isFetching && 
+    hasMore 
   ) {
     if (searchTerm) {
       loadSearchImages(searchTerm);
-      
     } else {
       loadImages(query);
     }
     currentPage++;
+    isFetching = true;
   }
 };
 

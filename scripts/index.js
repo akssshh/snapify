@@ -6,7 +6,7 @@ const preview = document.querySelector(".preview");
 const closePreviewImg = document.querySelector(".close-icon");
 const previewImportBtn = document.querySelector(".preview-import-btn");
 
-const apiKey = "TtUUhp1lrnNSVzskUf6fQ3zSJEmTaJ_3MSDkbz5oDLQ";
+const apiKey = "12gZb1rLsA7rqFgAOuzVaj9Tyi1vpCmsoz1SLzgm_Os";
 let currentPage = 1;
 let isFetching = false;
 let hasMore = true;
