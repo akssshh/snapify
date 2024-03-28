@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- css -->
+    <link rel="stylesheet" href="./styles/nav.css" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/slider.css" />
+
      <!-- icons -->
      <link
      rel="stylesheet"
@@ -20,54 +25,71 @@
      rel="stylesheet"
    />
 
-    <link rel="stylesheet" href="./styles/main.css" />
-    <link rel="stylesheet" href="./styles/nav.css" />
-    <link rel="stylesheet" href="./styles/slider.css" />
-    <link rel="stylesheet" href="./styles/main.css">
     <title>Document</title>
   </head>
   <body>
-    <nav id="float-nav-query">
-      <div class="float-navbar">
-        <h1 class="float-logo"><a href="/">Snapify</a></h1>
-        <img src="./camera.png" alt="" style="width: 50px; margin: 0px 8px;" class="float-logo-cam" >
 
-        <div class="float-search">
-          <input
-            type="text"
-            id="float-search-input"
-            autocomplete="off"
-            placeholder="Search images"
-          />
-          <i id="search-button" type="submit" class="uil uil-search"></i>
-        </div>
-
-        <i class="bx bx-menu sidebarOpen"></i>
-
-        <div class="menu">
-          <div class="logo-toggle">
-            <span class="logo"><a href="/">Snapify</a></span>
-            <i class="bx bx-x siderbarClose"></i>
+    <div class="preview" style="top: 0px;" >
+      <div class="wrapper-preview">
+        <header>
+          <div class="photographer">
+            <img class="photographer_profile"  alt="photographer_profile" />
+            <span></span>
           </div>
-
-          <ul class="menu-items">
-            <li><a href="/">Home</a></li>
-            <li><a href="bookmark.html">Bookmarks</a></li>
-          </ul>
+          <div class="buttons">
+            <i id="close-icon" class="close-icon uil uil-times"></i>
+          </div>
+        </header>
+        <div class="preview-img">
+          <div class="img"><img class="main-img"  alt="preview-img" /></div>
         </div>
+        <div class="preview-import-btn"><i class="uil uil-import"></i></div>
       </div>
+    </div>
 
-      <div id="slider-container" class="slider"></div>
-      <div onclick="prev()" class="control-prev-btn">
-        <i class="fas fa-arrow-left"></i>
+    <div class="wrapper">
+      <nav id="float-nav-query">
+        <div class="float-navbar">
+          <h1 class="float-logo"><a href="/">Snapify</a></h1>
+          <img src="./camera.png" alt="" style="width: 50px; margin: 0px 8px;" class="float-logo-cam" >
+  
+          <div class="float-search">
+            <input
+              type="text"
+              id="float-search-input"
+              autocomplete="off"
+              placeholder="Search images"
+            />
+            <i id="search-button" type="submit" class="uil uil-search"></i>
+          </div>
+  
+          <i class="bx bx-menu sidebarOpen"></i>
+  
+          <div class="menu">
+            <div class="logo-toggle">
+              <span class="logo"><a href="/">Snapify</a></span>
+              <i class="bx bx-x siderbarClose"></i>
+            </div>
+  
+            <ul class="menu-items">
+              <li><a href="/">Home</a></li>
+              <li><a href="bookmark.html">Bookmarks</a></li>
+            </ul>
+          </div>
+        </div>
+  
+        <div id="slider-container" class="slider"></div>
+        <div onclick="prev()" class="control-prev-btn">
+          <i class="fas fa-arrow-left"></i>
+        </div>
+        <div onclick="next()" class="control-next-btn">
+          <i class="fas fa-arrow-right"></i>
+        </div>
+      </nav>
+  
+      <div class="container gallery slider-data" id="home-section">
+        <div class="grid images" id="grid-box"></div>
       </div>
-      <div onclick="next()" class="control-next-btn">
-        <i class="fas fa-arrow-right"></i>
-      </div>
-    </nav>
-
-    <div class="container gallery slider-data" id="home-section">
-      <div class="grid images" id="grid-box"></div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/macy@2"></script>

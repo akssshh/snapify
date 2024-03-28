@@ -6,6 +6,10 @@ const floatSearchInput = document.getElementById("float-search-input");
 
 const searchButton = document.querySelector("#search-button");
 
+const preview = document.querySelector(".preview");
+const closePreviewImg = document.querySelector(".close-icon");
+const previewImportBtn = document.querySelector(".preview-import-btn");
+
 let imageWrapper;
 
 const apiKey = "_9ydOWriXTLwk3UTf5m7I0itKIjckOwQKzXrPYSAOvc";
@@ -24,6 +28,25 @@ const fixStartUpBug = () => {
   }, true);
 };
 
+const showpreview = (name, img, profile) => {
+  if (window.innerWidth > 768) {
+    preview.querySelector(".main-img").src = img;
+    preview.querySelector("span").innerText = name;
+    preview.querySelector(".photographer_profile").src = profile;
+    previewImportBtn.setAttribute("data-img", img);
+    preview.classList.add("show");
+    document.body.style.overflow = "hidden";
+  }
+};
+
+const hidepreview = () => {
+  // Hiding preview on close icon click
+  preview.classList.remove("show");
+  document.body.style.overflow = "auto";
+};
+
+closePreviewImg.addEventListener("click", hidepreview);
+
 const generateHTML = (images) => {
   isFetching = false;
   if (!imageWrapper) {
@@ -36,7 +59,11 @@ const generateHTML = (images) => {
       const isBookmarked = bookmarkedImages.includes(img.id);
       return `
         <div class="grid-item card" >
-            <img src="${img.urls.small}" class="fetch-img" />
+        <img onclick="showpreview( '${img.user.name}', '${
+          img.urls.regular
+        }', '${img.user.profile_image.small}')" src="${
+          img.urls.small
+        }" class="fetch-img" />
                 
               <div class="icons top-icons">
                 <button class="bookmark-btn ${
@@ -70,6 +97,7 @@ const generateHTML = (images) => {
   imageWrapper.innerHTML += htmlMarkup;
 
   fixStartUpBug();
+  floatSearchInput.value = '';
 };
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -207,4 +235,17 @@ const handleScroll = () => {
   }
 };
 
+floatSearchInput.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault(); 
+    searchButton.click();
+  }
+});
+
+
 window.addEventListener("scroll", handleScroll);
+
+previewImportBtn.addEventListener("click", () => {
+  const imgUrl = previewImportBtn.getAttribute("data-img");
+  downloadImg(imgUrl);
+});
